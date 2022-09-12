@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const FooterStyled = styled.div`
-    background-color: #f02d34;
+    background-color: #10b981;
     color: white;
     border-radius: 15px;
 

@@ -69,13 +69,13 @@ const Cart = ({setIsCart}) => {
         <div className="d-flex align-items-center gap-2">
             <IconButton onClick={() => setIsCart(false)}><KeyboardArrowLeftIcon /></IconButton>
             <span className="fw-bold fs-6">Your Cart</span>
-            <span className="text-danger">({cartData.items.length} Items)</span>
+            <span className="text-success">({cartData.items.length} Items)</span>
         </div>
         <div className="products my-4">
             {cartData.items.map((item, ind) => (
                 <div key={item.productId} className="d-flex  gap-3 px-3 my-3">
                 <Col className="col-5 col-md-4">
-                    <div className="img"><img className="w-100 h-100" src={item.images[0]} alt={item.title} /></div>
+                    <div className="img"><img className="w-100 h-100" src={item.images[0].src} alt={item.title} /></div>
                 </Col>
                 <Col className="col-7 col-md-8 d-flex flex-column gap-3">
                     <div className="d-flex flex-wrap justify-content-between align-items-center">
@@ -88,12 +88,12 @@ const Cart = ({setIsCart}) => {
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="quantity d-flex">
-                            <button onClick={() => decItemQuantity(item.productId)} disabled={item.quantity === 1}><RemoveIcon className="text-danger"/></button>
+                            <button onClick={() => decItemQuantity(item.productId)} disabled={item.quantity === 1}><RemoveIcon className="text-success"/></button>
                             <span>{item.quantity}</span>
                             <button onClick={() => incItemQuantity(item.productId)} disabled={item.quantity === 30}><AddIcon className="text-success"/></button>
                         </div>
-                        <IconButton onClick={() => removeItem(item.productId)}><RemoveCircleOutlineIcon className="text-danger"/></IconButton>
-                    </div>
+                        <IconButton onClick={() => removeItem(item.productId)}><RemoveCircleOutlineIcon className="text-success"/></IconButton>
+                    </div>  
                 </Col>
             </div>
             ))}
@@ -102,7 +102,7 @@ const Cart = ({setIsCart}) => {
             <span className="fw-bold fs-6">Subtotal:</span>
             <span className="fw-bold fs-6">${total.toFixed(2)}</span>
         </div>
-        <div className="px-5 mt-4"><Button variant="contained" color="error" fullWidth onClick={handleCheckOut}>pay with stripe</Button></div>
+        <div className="px-5 mt-4"><Button variant="contained" color="success" fullWidth onClick={handleCheckOut}>pay with stripe</Button></div>
     </Col>
     </CartStyled>
     </>

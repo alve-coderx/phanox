@@ -114,7 +114,7 @@ const ProductDetails = () => {
             <div className="main_img p-4"><img className="w-100" src={productData.images[0].src} alt={productData?.title} /></div>
             <div className="sec_img d-flex mt-3 p-2">
                 {productData?.images?.map((img, ind) => (
-                    <Col key={ind} className={`col-3 p-3 img d-flex align-items-center ${imgSelected === img ? 'bg-light' : ''}`} onClick={() => setImgSelected(img)} ><img className="w-100" src={img.src} alt={'image' + ind} /></Col>
+                    <Col key={ind} className={`col-3 p-3 img d-flex align-items-center ${imgSelected === img.src ? 'bg-light' : ''}`} onClick={() => setImgSelected(img.src)} ><img className="w-100" src={img.src} alt={'image' + ind} /></Col>
                 ))}
                 </div>
         </Col>
@@ -138,14 +138,14 @@ const ProductDetails = () => {
           <div className="d-flex align-items-center gap-3 my-4 justify-content-center justify-content-md-start">
              <h6>Quantity:</h6>
              <div className="quantity d-flex">
-                <button onClick={() => setItemData({...itemData, quantity: itemData.quantity - 1})} disabled={itemData.quantity === 1}><RemoveIcon className="text-danger"/></button>
+                <button onClick={() => setItemData({...itemData, quantity: itemData.quantity - 1})} disabled={itemData.quantity === 1}><RemoveIcon className="text-success"/></button>
                 <span>{itemData.quantity}</span>
                 <button onClick={() => setItemData({...itemData, quantity: itemData.quantity + 1})} disabled={itemData.quantity === 30}><AddIcon className="text-success"/></button>
              </div>
           </div>
           <div className="mt-5 d-flex gap-4">
-            <Button style={{width: '200px', borderRadius: '0'}} variant="outlined" color="error" onClick={() => addItem()}>{cartData.items.some(item => item.productId === itemData.productId ) ? 'Remove from cart' : 'Add to cart'}</Button>
-            <Button style={{width: '200px', borderRadius: '0'}} variant="contained" color="error" onClick={handleCheckOut}>By now</Button>
+            <Button style={{width: '200px', borderRadius: '0',}} variant="outlined" color='success' onClick={() => addItem()}>{cartData.items.some(item => item.productId === itemData.productId ) ? 'Remove from cart' : 'Add to cart'}</Button>
+            <Button style={{width: '200px', borderRadius: '0',backgroundColor: '#10b981'}} variant="contained" color="error" onClick={handleCheckOut}>By now</Button>
           </div>
         </Col>}
         </>
