@@ -80,7 +80,7 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
-            </Grid>
+                </Grid>
             <Button
               type="submit"
               fullWidth

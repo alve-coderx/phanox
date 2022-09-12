@@ -19,7 +19,7 @@ const ProductDetails = () => {
     const { cartData, setCartData } = useContext(CartDataAPI)
     const dispatch = useDispatch()
     const { id } = useParams()
-    const [productData, setProductData] = useState(data)
+    const [productDataaaa, setProductData] = useState(data)
     const [imgSelected, setImgSelected] = useState('')
     const [ itemData, setItemData ] = useState({})
 
@@ -75,19 +75,46 @@ const ProductDetails = () => {
       stripe.redirectToCheckout({ sessionId: data.id })
     }
 
+    const productData =
+      {
+        productId: 5,
+        images: [
+          {
+            src: "https://img.ltwebstatic.com/images3_pi/2021/07/26/1627269097cb91d8ca3188289a4a66b2fb915f2f82_thumbnail_600x.webp",
+            alt: "Two each of gray, white, and black shirts laying flat.",
+          },
+          {
+            src: "https://img.ltwebstatic.com/images3_pi/2021/07/26/1627269100f2af8499b5c5d074b08f0a4fa8884703_thumbnail_600x.webp",
+            alt: "Model wearing plain black basic tee.",
+          },
+          {
+            src: "https://img.ltwebstatic.com/images3_pi/2021/07/26/1627269104e035e6af94ebe45fd28d208a8fe38d10_thumbnail_600x.webp",
+            alt: "Model wearing plain gray basic tee.",
+          },
+          {
+            src: "https://img.ltwebstatic.com/images3_pi/2021/07/26/162726910228fdbfef7994fd35f2be784dec8e9b12_thumbnail_600x.webp",
+            alt: "Model wearing plain white basic tee.",
+          },
+        ],
+        discount : '50',
+        price: '$35',
+        title: 'Basic Tee',
+        href: '#',
+        imageAlt: "Front of men's Basic Tee in black.",
+        color: 'Black',
+      }
   return (
     <>
-    <Navbar />
     <ProductDetailsStyled>
         <Container className="d-flex flex-column flex-lg-row gap-5 py-5 overflow-hidden">
         {productData?.title !== '' && 
         (
         <>
         <Col className="col-12 col-lg-5">
-            <div className="main_img p-4">{!imgSelected ? <Spinner animation="grow" variant="danger" className="m-auto" /> : <img className="w-100" src={imgSelected} alt={productData?.title} />}</div>
+            <div className="main_img p-4"><img className="w-100" src={productData.images[0].src} alt={productData?.title} /></div>
             <div className="sec_img d-flex mt-3 p-2">
                 {productData?.images?.map((img, ind) => (
-                    <Col key={ind} className={`col-3 p-3 img d-flex align-items-center ${imgSelected === img ? 'bg-light' : ''}`} onClick={() => setImgSelected(img)} ><img className="w-100" src={img} alt={'image' + ind} /></Col>
+                    <Col key={ind} className={`col-3 p-3 img d-flex align-items-center ${imgSelected === img ? 'bg-light' : ''}`} onClick={() => setImgSelected(img)} ><img className="w-100" src={img.src} alt={'image' + ind} /></Col>
                 ))}
                 </div>
         </Col>
