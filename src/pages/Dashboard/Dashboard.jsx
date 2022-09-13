@@ -113,6 +113,14 @@ function DashboardContent() {
                         <ListItemText primary="Add A Product" />
                     </ListItemButton>
                 </NavLink>
+                <NavLink style={{color :'#10b981',textDecoration : 'none'}} to='/dashboard/manageproducts'>
+                    <ListItemButton sx={{ mt:5}}>
+                        <ListItemIcon sx={{color : '#10b981',}}>
+                            <GroupIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Manage Products" />
+                    </ListItemButton>
+                </NavLink>
                 
             </List>
         </Drawer>
