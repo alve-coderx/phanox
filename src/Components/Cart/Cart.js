@@ -10,11 +10,14 @@ import CartDataAPI from '../../cartDataAPI'
 import axios from 'axios'
 import getStripe from "../../stripe";
 import { BACK_END_URL } from "../../constant";
+import { useSelector } from "react-redux";
 
 const Cart = ({setIsCart}) => {
-  const {cartData, setCartData} = useContext(CartDataAPI)
+  const {cartData, setCartData} = useContext(CartDataAPI);
+  const [show,setShow] = useState(false);
   const [total, setTotal] = useState(0)
-
+  const customItems = useSelector(state => state.customProduct.customCart)
+    console.log(customItems)
   useEffect(() => {
     let totalPrice = 0 
     cartData.items.map(item => {
@@ -71,7 +74,12 @@ const Cart = ({setIsCart}) => {
             <span className="fw-bold fs-6">Your Cart</span>
             <span className="text-success">({cartData.items.length} Items)</span>
         </div>
-        <div className="products my-4">
+        <div>
+            <Button onClick={() => setShow((prev) => !prev)}>{show ? 'Custom Products' : 'Products'}</Button>
+        </div>
+       {
+        show ? (
+            <div className="products my-4">
             {cartData.items.map((item, ind) => (
                 <div key={item.productId} className="d-flex  gap-3 px-3 my-3">
                 <Col className="col-5 col-md-4">
@@ -98,6 +106,31 @@ const Cart = ({setIsCart}) => {
             </div>
             ))}
         </div>
+        )
+        :
+        <div className="products my-4">
+            {customItems.map((item, ind) => (
+                <div key={item.description} className="d-flex  gap-3 px-3 my-3">
+                <Col className="col-5 col-md-4">
+                    <div className="img"><img className="w-100 h-100" src={item.image} alt={item.title} /></div>
+                </Col>
+                <Col className="col-7 col-md-8 d-flex flex-column gap-3">
+                    <div className="d-flex flex-wrap justify-content-between align-items-center">
+                        <h5 className="fw-bold m-0">{item.name}</h5>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <div className="quantity d-flex">
+                            <button onClick={() => decItemQuantity(item.productId)} disabled={item.quantity === 1}><RemoveIcon className="text-success"/></button>
+                            <span>{item.quantity}</span>
+                            <button onClick={() => incItemQuantity(item.productId)} disabled={item.quantity === 30}><AddIcon className="text-success"/></button>
+                        </div>
+                        <IconButton onClick={() => removeItem(item.productId)}><RemoveCircleOutlineIcon className="text-success"/></IconButton>
+                    </div>  
+                </Col>
+            </div>
+            ))}
+        </div>
+       }
         <div className="d-flex justify-content-between align-items-center px-3">
             <span className="fw-bold fs-6">Subtotal:</span>
             <span className="fw-bold fs-6">${total.toFixed(2)}</span>

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import CartDataAPI from './cartDataAPI'
 import { initialCartData } from './cartDataAPI'
 import Error from './Components/Error'
-import ContectUs from './pages/ContectUs/ContectUs'
+import ContactUs from './pages/ContactUs/ContactUs'
 import Navbar from './Components/Navbar/Navbar'
 import AboutUs from './pages/AboutUs/AboutUs'
 import SignIn from './pages/Singin/SignIn'
@@ -36,7 +36,7 @@ const App = () => {
           <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/contectus" element={<ContectUs />} />
+                <Route path="/contactus" element={<ContactUs />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />

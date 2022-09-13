@@ -14,7 +14,7 @@
   const pages = [
       
       {name : 'Home', url : '/'},
-      {name : 'Contect', url : '/contectus'},
+      {name : 'Contact', url : '/contactus'},
       {name : 'About us', url : '/aboutus'},
       {name : 'Dashboard', url : '/dashboard'},
       {name : 'Create Design', url : '/custom'},
@@ -23,7 +23,7 @@
   function CollapsibleExample() {
         const [isCart, setIsCart] = useState(false)
         const {cartData} = useContext(CartDataAPI)
-  
+      
     return (
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light  ">
         {isCart && (

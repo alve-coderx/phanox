@@ -18,4 +18,5 @@ const delProduct = (id) => {
   return axios.delete(SERVER_URL + id)
 }
 
+
 export default { postProduct, getProducts, getProduct, delProduct }
