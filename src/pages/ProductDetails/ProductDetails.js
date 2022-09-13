@@ -105,6 +105,7 @@ const ProductDetails = () => {
       }
   return (
     <>
+    <Navbar/>
     <ProductDetailsStyled>
         <Container className="d-flex flex-column flex-lg-row gap-5 py-5 overflow-hidden">
         {productData?.title !== '' && 

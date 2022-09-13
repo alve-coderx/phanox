@@ -1,9 +1,11 @@
 import React from 'react'
 import './style.css';
 import { FiFacebook,FiInstagram,FiTwitter } from 'react-icons/fi';
+import Navbar from '../../Components/Navbar/Navbar';
 const AboutUs = () => {
   return (
     <div>
+    <Navbar/>
         <section id="about-section" class="pt-5 pb-5">
     <div class="container wrapabout">
         <div class="red"></div>

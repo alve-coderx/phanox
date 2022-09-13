@@ -38,7 +38,7 @@ const ProductStyled = styled.div`
             height: 140px;
             transition: .3s;
             &:hover {
-                background-color: #f02d34;
+                background-color: #10b981;
             }
 
             img {
@@ -48,7 +48,7 @@ const ProductStyled = styled.div`
         }
 
         .discount {
-            background-color: #ffa59e;
+            background-color: #10b981;
             color: #fff;
             font-weight: bold;
             padding: 2px 5px;

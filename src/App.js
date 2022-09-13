@@ -11,7 +11,12 @@ import ContectUs from './pages/ContectUs/ContectUs'
 import Navbar from './Components/Navbar/Navbar'
 import AboutUs from './pages/AboutUs/AboutUs'
 import SignIn from './pages/Singin/SignIn'
-import SignUp from './pages/SignUp/SingUp'
+import SignUp from './pages/SignUp/SingUp';
+import Dashboard from './pages/Dashboard/Dashboard'
+import AddProducts from './pages/Dashboard/AddProducts'
+import Content from './pages/Admin Controller/AdminDash/content'
+import CustomDesign from './pages/Custom/CustomDesign'
+import MarketDesign from './pages/MarketDesign/MarketDesign'
 const App = () => {
   const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cart_data')) || initialCartData)
   
@@ -28,7 +33,6 @@ const App = () => {
     <>
       <Router>
         <CartDataAPI.Provider value={CartDataAPIValues}>
-          <Navbar />
           <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -37,6 +41,11 @@ const App = () => {
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/admin" element={<AdminController />} />
+                <Route path="/custom" element={<CustomDesign />} />
+                <Route path="/shop" element={<MarketDesign />} />
+                <Route path='/dashboard' element={<Dashboard/>}>
+                    <Route path='/dashboard/addproducts' element={<Content/>}/>
+                </Route>
                 <Route path="/products/:id" element={<ProductDetails />} />
                 <Route path="*" element={<Error />} />
           </Routes>

@@ -175,7 +175,7 @@ const Products = () => {
                 <h2 className="fw-bold">Best Seller Products</h2>
                 <span>speaker There are many variations passages</span>
             </div>
-            {!products?.length > 0 ? <div className="pt-4 pb-4 mt-5 d-flex justify-content-center align-items-center"><Spinner animation="grow" variant="danger" /></div> : <div className="d-flex flex-wrap mt-5">
+            {!products?.length > 0 ? <div className="pt-4 pb-4 mt-5 d-flex justify-content-center align-items-center"><Spinner animation="grow" variant=" " /></div> : <div className="d-flex flex-wrap mt-5">
                 {products?.map((product, ind) => {
                     return (
                     <div key={ind} className="product px-2 mb-4">

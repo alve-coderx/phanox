@@ -1,9 +1,11 @@
 import React from 'react'
 import './style.css';
 import { FiMapPin,FiSend,FiPhoneCall,FiClock } from 'react-icons/fi'
+import Navbar from '../../Components/Navbar/Navbar';
 const ContectUs = () => {
   return (
     <div>
+		<Navbar/>
       <div id="contact" class="contact-area section-padding">
 	<div class="container">										
 		<div class="section-title text-center">
