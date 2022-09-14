@@ -32,7 +32,7 @@ const Home = () => {
           : 
           ''
         }
-          <Button variant="contained" color='success' fullWidth onClick={() => setFilterOn((prev) => !prev)}>
+          <Button variant="contained" style={{backgroundColor: '#2f2e44'}} fullWidth onClick={() => setFilterOn((prev) => !prev)}>
               Do you need any help?
           </Button> 
         </div>
