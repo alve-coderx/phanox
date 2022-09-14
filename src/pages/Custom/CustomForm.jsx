@@ -9,8 +9,9 @@ import { addCustomProduct } from '../../features/admin/customActions';
 import { TextField, Typography } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import CartDataAPI from "../../cartDataAPI"
+import { FiStar } from 'react-icons/fi';
 
-const steps = ['Select sample design', 'Give a name', 'Give some note'];
+const steps = ['Select sample design', 'Give a name', 'Give some note','Preview & Add to cart'];
 
 export default function HorizontalNonLinearStepper() {
   const [ itemData, setItemData ] = useState({})
@@ -154,7 +155,31 @@ export default function HorizontalNonLinearStepper() {
                         sx={{background: 'white'}}
                     />
                 </Box>
-                ) : ''}
+                ) : activeStep === 3 ?
+                (
+                <Container className="my-5 d-flex flex-column align-items-center">
+                    <div key={itemData.productId}>
+                        <div className="card rounded shadow-sm border-0">
+                          <div className="card-body p-4"><img src={itemData.images[0].src} alt="" style={{height:"276px"}} className="img-fluid d-block mx-auto mb-3"/>
+                            <h5>{itemData.title}</h5>
+                            <p className="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <div className='d-flex justify-content-between'>
+                                <p className="small font-italic">{itemData.price}</p>
+                                <p className="small font-italic" style={{background : '#ffc74c',padding:'3px 10px',color : '#181818'}}>{itemData.discount}% Off</p>
+                            </div>
+                          <ul className="list-inline small">
+                              {[1,2,3,4,5].map((index)=>(
+                                  <li key={index} className="list-inline-item m-0"><FiStar/></li>
+                              ))}
+                          </ul>
+                          </div>
+                    </div>
+                </div>
+                </Container>
+
+                  
+                ) : ''
+              }
                
                <Box sx={{ display: 'flex', justifyContent : 'space-between' ,flexDirection: 'row', pt: 2 }}>
                     <Button
@@ -166,10 +191,10 @@ export default function HorizontalNonLinearStepper() {
                         Back
                     </Button>
                     {
-                        activeStep === 2 && (<Button onClick={() => addItem()} style={{width: '200px', borderRadius: '0',backgroundColor : '#181818',color : '#bda683'}} variant="outlined" color='success'>Add to cart</Button>)
+                        activeStep === 3 && (<Button onClick={() => addItem()} style={{width: '200px', borderRadius: '0',backgroundColor : '#181818',color : '#bda683'}} variant="outlined" color='success'>Add to cart</Button>)
                     }
                     <Box sx={{ flex: '1 1 auto' }} />
-                    <Button disabled={activeStep === 2} onClick={handleNext} sx={{ mr: 1 }}>
+                    <Button disabled={activeStep === 3} onClick={handleNext} sx={{ mr: 1 }}>
                         Next
                     </Button>
                     
