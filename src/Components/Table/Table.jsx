@@ -1,6 +1,6 @@
 import { Avatar, Box } from '@mui/material';
 import Table from 'react-bootstrap/Table';
-import {products} from '../../fake/fake';
+import {petterns,products} from '../../fake/fake';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -21,8 +21,8 @@ function ResponsiveExample() {
           </thead>
           <tbody>
             {
-                products.map((product) => (
-                    <tr>
+                petterns.map((product) => (
+                    <tr key={product.productId}>
                         <td><Avatar alt="Remy Sharp" src={product?.images[0].src}/></td>
                         <td>{product.productId}</td>
                         <td>{product.title}</td>

@@ -120,11 +120,11 @@ const Cart = ({setIsCart}) => {
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="quantity d-flex">
-                            <button onClick={() => decItemQuantity(item.productId)} disabled={item.quantity === 1}><RemoveIcon className="text-success"/></button>
+                            <button onClick={() => decItemQuantity(item.productId)} disabled={item.quantity === 1}><RemoveIcon style={{color : '#bda683'}}/></button>
                             <span>{item.quantity}</span>
-                            <button onClick={() => incItemQuantity(item.productId)} disabled={item.quantity === 30}><AddIcon className="text-success"/></button>
+                            <button onClick={() => incItemQuantity(item.productId)} disabled={item.quantity === 30}><AddIcon style={{color : '#bda683'}}/></button>
                         </div>
-                        <IconButton onClick={() => removeItem(item.productId)}><RemoveCircleOutlineIcon className="text-success"/></IconButton>
+                        <IconButton onClick={() => removeItem(item.productId)}><RemoveCircleOutlineIcon style={{color : '#bda683'}}/></IconButton>
                     </div>  
                 </Col>
             </div>
@@ -135,7 +135,7 @@ const Cart = ({setIsCart}) => {
             <span className="fw-bold fs-6">Subtotal:</span>
             <span className="fw-bold fs-6">${total.toFixed(2)}</span>
         </div>
-        <div className="px-5 mt-4"><Button variant="contained" color="success" fullWidth onClick={handleCheckOut}>pay with stripe</Button></div>
+        <div className="px-5 mt-4"><Button variant="contained" color="success" style={{backgroundColor : '#181818',color : '#bda683'}} fullWidth onClick={handleCheckOut}>pay with stripe</Button></div>
     </Col>
     </CartStyled>
     </>

@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import BarLinks from '../../Components/BarLinks/BarLinks';
-import { Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { FiPlus, FiShoppingBag } from 'react-icons/fi';
 import { TbBrandProducthunt,TbShoppingCartDiscount } from 'react-icons/tb';
 import {FcManager,FcSalesPerformance,FcPositiveDynamic} from 'react-icons/fc'
@@ -115,9 +115,10 @@ function DashboardContent() {
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
+              backgroundColor : '#181818'
             }}
           >
-            <IconButton onClick={toggleDrawer}>
+            <IconButton style={{color : '#bda683'}} onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
           </Toolbar>
@@ -126,7 +127,7 @@ function DashboardContent() {
               <Box sx={{display : 'flex', flexDirection : 'column',alignItems : 'center'}}>
                 {
                   links.map((link) => (
-                    <BarLinks link={link} open={open}/>
+                    <BarLinks key={link.page} link={link} open={open}/>
                   ))
                 }
               </Box>

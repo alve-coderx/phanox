@@ -435,7 +435,7 @@ export const petterns = [
       color: 'Black',
     },
     {
-      productId: 6,
+      productId: 11,
       images: [
         {
           src: "https://i.ibb.co/myvLz7k/Wall-Panel-Designs-03.jpg",

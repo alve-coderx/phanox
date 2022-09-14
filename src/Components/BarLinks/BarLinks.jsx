@@ -23,7 +23,7 @@ const BarLinks = ({link,open}) => {
             <Box className='w-100 px-5' id="example-collapse-text" sx={{backgroundColor : '#fafbfe'}}>
             {
                     link.subPages.map((subpage)=>(
-                    <Typography variant='h6' className='py-2'>
+                    <Typography key={subpage.href} variant='h6' className='py-2'>
                         <NavLink to={subpage.href} style={{textDecoration : 'none',color: '#1b2850'}}>{subpage.icon} {open ? subpage.name : ''}</NavLink>
                     </Typography>
                 ))

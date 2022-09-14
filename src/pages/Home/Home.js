@@ -36,7 +36,6 @@ const Home = () => {
               Do you need any help?
           </Button> 
         </div>
-        
     <Products products={data?.data} />
     <PetterProducts products={data?.data} />
     <Footer />
