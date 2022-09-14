@@ -30,7 +30,7 @@ const ChatBox = () => {
             <Typography sx={{ml : '11px',backgroundColor: '#1f0a53',padding:2,borderRadius :'20px',color: 'white'}}>I want to order a custom design</Typography>
           </Box>
           <Box sx={{display:'flex',alignItems: "center", justifyContent : 'flex-end',paddingTop : '10px'}}>
-            <Typography sx={{mr : '11px',backgroundColor: '#343a5c',padding:2,borderRadius :'20px',color: 'white'}}>Follow <Link to='/custom'>http://localhost:3000/custom</Link></Typography>
+            <Typography sx={{mr : '11px',backgroundColor: '#343a5c',padding:2,borderRadius :'20px',color: 'white'}}>Follow <Link to='/custom'>/custom</Link></Typography>
               <Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>
           </Box>
         </Box>

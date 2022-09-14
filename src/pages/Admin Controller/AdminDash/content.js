@@ -79,66 +79,49 @@ const Content = ({prodata}) => {
       </ul>
     </div>
     {/* add form to add product */}
-    <div className="mx-5 p-5 " style={{background : '#1f2128',borderRadius : '20px',color:'white'}}>
+    <div className="mx-5 p-5 w-50" style={{background : '#1f2128',borderRadius : '20px',color:'white'}}>
       <h2 className="">Product add</h2>
       <h4 className="">Create new product</h4>
       <form onSubmit={handleAddProduct}>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-            
             <input 
               label="Product Title"
               defaultValue=""
               id="reddit-input"
               variant="filled"
-              fullWidth
               onChange={(e) => setData({...data, title: e.target.value})}            
-              type="text" className="form-control" placeholder="Product Name" aria-label="Username" aria-describedby="basic-addon1"/>
+              type="text" className="w-50 m-3 form-control" placeholder="Product Name" aria-label="Username" aria-describedby="basic-addon1"/>
 
-        </Grid>
-        
-        <Grid item xs={4}>
             
             <input 
               defaultValue=""
               id="reddit-input"
-              fullWidth
               onChange={(e) => setData({...data, price: parseFloat(e.target.value)})}            
-              type="text" className="form-control" placeholder="Username" aria-label="Product Price" aria-describedby="basic-addon1"/>
+              type="text" className="w-50 m-3 form-control" placeholder="Product Price" aria-label="Product Price" aria-describedby="basic-addon1"/>
 
-        </Grid>
-        <Grid item xs={4}>
             
             <input 
               abel="Product Rating"
               defaultValue=""
               id="reddit-input"
               variant="filled"
-              fullWidth
               onChange={(e) => setData({...data, rating: parseFloat(e.target.value)})}            
-              type="text" className="form-control" placeholder="Username" aria-label="Product Rateing" aria-describedby="basic-addon1"/>
+              type="text" className="w-50 m-3 form-control" placeholder="Product Rateing" aria-label="Product Rateing" aria-describedby="basic-addon1"/>
 
-        </Grid>
-        <Grid item xs={8}>
             <input
               label="Product Details"
               defaultValue=""
               id="reddit-input"
               variant="filled"
-              fullWidth
               onChange={(e) => setData({...data, details: e.target.value})}
-              type="text" className="form-control" placeholder="Username" aria-label="Product Description" aria-describedby="basic-addon1"
+              type="text" className="w-50 m-3 form-control" placeholder="Product Description" aria-label="Product Description" aria-describedby="basic-addon1"
             />
-        </Grid>
-      </Grid>
         {isDiscount && 
-        <TextField
-        label="Product Discount "
+        <input
         defaultValue=""
         id="reddit-input"
-        variant="outlined"
-        style={{ marginTop: 11 }}
+        variant="filled"
         onChange={(e) => setData({...data, discount: parseFloat(e.target.value)})}
+        type="text" className="w-50 m-3 form-control" placeholder="Product Discount" aria-label="Product Description" aria-describedby="basic-addon1"
         />}<br/>
         <FormControlLabel control={<Checkbox />} label="Has Discount" onChange={e => setIsDiscount(e.target.checked)} />
         <h4 className="my-3">Add Images For Product</h4>
@@ -149,7 +132,7 @@ const Content = ({prodata}) => {
               <PhotoCamera /> Upload Image
             </IconButton>
 
-        <Box sx={{display : 'flex',justifyContent : 'space-around'}}>
+        <Box sx={{display : 'flex',justifyContent : 'space-between'}}>
           <div className="my-3"><Button size='large' type="submit" variant="contained" style={{background : '#7364db',borderRadius : '20px'}}>submit</Button></div>
           <div className="my-3"><Button size='large' variant="contained" style={{background : '#7364db',borderRadius : '20px'}}>Cancel</Button></div>
         </Box>
