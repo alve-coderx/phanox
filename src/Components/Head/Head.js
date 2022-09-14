@@ -1,5 +1,6 @@
 import { Button, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/system";
+import { Link } from "react-router-dom";
 import {
   BannerContainer,
   BannerContent,
@@ -43,7 +44,7 @@ export default function Banner() {
           tempor incididunt ut labore et dolore magna
         </BannerDescription>
 
-        <BannerShopButton style={{background : '#bda683'}}>Create Now</BannerShopButton>
+        <BannerShopButton style={{background : '#bda683'}}><Link style={{textDecoration : 'none',color : '#181818'}} to='/custom'>Create Now</Link></BannerShopButton>
       </BannerContent>
       <BannerImage src="https://i.ibb.co/c83RyMP/31.jpg" />
     </BannerContainer>
