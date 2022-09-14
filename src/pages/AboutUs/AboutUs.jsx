@@ -26,7 +26,7 @@ const AboutUs = () => {
                                     <a href="#"><i className="fa fa-instagram"><FiInstagram/></i></a>
                                     <a href="#"><i className="fa fa-pinterest"><FiTwitter/></i></a>
                                 </div>
-                                <a href="#" className="btn rey-btn mt-3">See More</a>
+                                <a href="https://fromsmash.com/-9aC08B_3z-dt?fbclid=IwAR1ej8lGzZhpSSRoKmHKKUNCSrJr2qtRk0qdkN1-aePtb0-48LCUpy4-bQg" className="btn rey-btn mt-3">Read About Us</a>
                             </div>
                         </div>
                     </div>

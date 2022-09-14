@@ -29,7 +29,7 @@ export default function Banner() {
           tempor incididunt ut labore et dolore magna
         </BannerDescription>
 
-        <BannerShopButton style={{background : '#181818'}}>Shop Now</BannerShopButton>
+        <BannerShopButton style={{background : '#181818'}}><Link style={{textDecoration : 'none',color : '#bda683'}} to='/shop/designs'>Shop Now</Link></BannerShopButton>
       </BannerContent>
     </BannerContainer>
 
