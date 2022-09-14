@@ -1,28 +1,52 @@
-import { Button } from "@mui/material"
-import { Container } from "react-bootstrap"
-import HeadStyled from "./HeadStyled.styled"
-const Head = () => {
+import { Button, Typography, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/system";
+import {
+  BannerContainer,
+  BannerContent,
+  BannerDescription,
+  BannerImage,
+  BannerShopButton,
+  BannerTitle,
+} from "./HeadStyled.styled";
+
+export default function Banner() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
-    <HeadStyled>
-        <Container style={{maxWidth: '1000px'}}>
-            <div className="content px-3 px-md-4 px-lg-5 pt-5 pb-4" style={{backgroundColor: '#dcdcdc', borderRadius: '10px'}}>
-                <span>Beats solo</span>
-                <h2 className="m-0" style={{fontWeight: '700'}}>Wireless</h2>
-                <h1 className="text-light" style={{fontSize: '6rem', fontWeight: '700', margin: '-15px 0'}}>HEADPHONE</h1>
-                <img src="./headphone.png" alt="headphone" />
-                <div className="des d-flex align-items-start justify-content-between p-0 pe-md-4">
-                    <Button className="mt-4" variant="contained" style={{backgroundColor : '#10b981'}} >Shop wireless headphone</Button>
-                    <div className="col-12 col-md-4 mt-5 d-flex flex-column align-items-center align-items-md-end">
-                        <span className="fw-bold">Description</span>
-                        <p className="text-center text-md-end m-0">The Tooltip has 12 placements choice. They don't have directional arrows; instead, they rely on motion emanating from the source to convey direction.</p>
-                    </div>
-                </div>
-            </div>
-        </Container>
-    </HeadStyled>
-    </>
-  )
-}
+      <BannerContainer >
+      <BannerImage src="https://i.ibb.co/t24T1Mg/27.jpg" />
+      <BannerContent>
+        <Typography variant="h6">Huge Collection</Typography>
+        <BannerTitle variant="h2">
+          Digital Febric Design
+        </BannerTitle>
 
-export default Head
+        <BannerDescription variant="subtitle">
+          Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo
+          tempor incididunt ut labore et dolore magna
+        </BannerDescription>
+
+        <BannerShopButton>Shop Now</BannerShopButton>
+      </BannerContent>
+    </BannerContainer>
+    <BannerContainer style={{background : '#181818'}}>
+      <BannerContent>
+        <BannerTitle style={{color : '#bda683'}} variant="h2">
+          Create Custom Design
+        </BannerTitle>
+
+        <BannerDescription style={{color : '#bda683'}} variant="subtitle">
+          Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo
+          tempor incididunt ut labore et dolore magna
+        </BannerDescription>
+
+        <BannerShopButton>Create Now</BannerShopButton>
+      </BannerContent>
+      <BannerImage src="https://i.ibb.co/c83RyMP/31.jpg" />
+    </BannerContainer>
+    
+    </>
+  );
+}

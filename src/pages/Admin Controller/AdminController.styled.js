@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 const AdminControllerStyled = styled.div`
     .add_product_Container {
-        width: 100%;
-
         ul {
             list-style: none;
             padding: 0;

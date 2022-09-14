@@ -1,47 +1,21 @@
-import styled from 'styled-components'
+import styled from "@emotion/styled";
+import {
+  TextField,
+  Typography,
+} from "@mui/material";
+import { Colors } from "../theme/theme";
 
-const FooterStyled = styled.div`
-    background-color: #10b981;
-    color: white;
-    border-radius: 15px;
+export const FooterTitle = styled(Typography)(() => ({
+  textTransform: "uppercase",
+  marginBottom: "1em",
+}));
 
-    .img {
-        position: relative;
-    }
-    
-    img {
-        position: absolute;
-        left: 48%;
-        transform: translate(-50%, -50%);
-        width: 320px;
-    }
+export const SubscribeTf = styled(TextField)(() => ({
+  ".MuiInputLabel-root": {
+    color: Colors.secondary,
+  },
 
-    .left-text {
-        h1 {
-            text-transform: uppercase;
-            font-size: 4.5rem;
-            font-weight: 900;
-        }
-
-    }
-
-    .right-text {
-        h1 {
-            text-transform: capitalize;
-            font-size: 2.5rem;
-            font-weight: 900;
-        }
-
-        p {
-            font-size: 12px;
-        }
-
-        button {
-            background-color: white;
-            color: #f02d34;
-            width: fit-content;
-        }
-    }
-`
-
-export default FooterStyled
+  ".MuiInput-root::before": {
+    borderBottom: `1px solid ${Colors.secondary}`,
+  },
+}));

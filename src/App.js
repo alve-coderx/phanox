@@ -13,11 +13,11 @@ import AboutUs from './pages/AboutUs/AboutUs'
 import SignIn from './pages/Singin/SignIn'
 import SignUp from './pages/SignUp/SingUp';
 import Dashboard from './pages/Dashboard/Dashboard'
-import AddProducts from './pages/Dashboard/AddProducts'
 import Content from './pages/Admin Controller/AdminDash/content'
 import CustomDesign from './pages/Custom/CustomDesign'
 import MarketDesign from './pages/MarketDesign/MarketDesign'
 import ManageProducts from './pages/Dashboard/ManageProducts'
+import PetternDesign from './pages/PetternDesign/PetternDesign'
 const App = () => {
   const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cart_data')) || initialCartData)
   
@@ -43,7 +43,8 @@ const App = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/admin" element={<AdminController />} />
                 <Route path="/custom" element={<CustomDesign />} />
-                <Route path="/shop" element={<MarketDesign />} />
+                <Route path="/shop/designs" element={<MarketDesign />} />
+                <Route path="/shop/petterns" element={<PetternDesign />} />
                 <Route path='/dashboard' element={<Dashboard/>}>
                     <Route path='/dashboard/addproducts' element={<Content/>}/>
                     <Route path='/dashboard/manageproducts' element={<ManageProducts/>}/>

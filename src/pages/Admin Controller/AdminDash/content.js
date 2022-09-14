@@ -3,11 +3,22 @@ import { Col } from 'react-bootstrap';
 import { alpha } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
-import { Button, Checkbox, FormControlLabel, Rating } from '@mui/material';
+import { Button, Checkbox, FormControlLabel, Grid, IconButton, Paper, Rating } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux'
 import { postProduct, delProduct } from '../../../features/admin/adminSlice'
 import {v4} from 'uuid'
 import CloseIcon from '@mui/icons-material/Close';
+import { PhotoCamera } from '@mui/icons-material';
+import { Box } from '@mui/system';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
 const dataSchema = {
     title: '',
     details: '',
@@ -56,8 +67,8 @@ const Content = ({prodata}) => {
     }
 
   return (
-    <>
-    <div className='add_product_Container p-md-5 mb-2'>
+    <div style={{backgroundColor : '#fafbfe'}}>
+    <div className='add_product_Container mx-5 p-md-5 mb-2'>
         <ul style={{maxHeight: '400px', overflow: 'auto'}}>
             {prodata?.map(pro => (
                 <li key={pro._id} style={{backgroundColor: 'white'}} className="p-2 px-4">
@@ -74,92 +85,94 @@ const Content = ({prodata}) => {
       </ul>
     </div>
     {/* add form to add product */}
-    <div className="w-100 px-3">
-      <h2 className="">Add Product</h2>
+    <div className="w-75 mx-5 p-5 " style={{background : 'white'}}>
+      <h2 className="">Product add</h2>
+      <h4 className="">Create new product</h4>
       <form onSubmit={handleAddProduct}>
-      <RedditTextField
-        label="Product Title"
-        defaultValue=""
-        id="reddit-input"
-        variant="filled"
-        style={{ marginTop: 11 }}
-        fullWidth
-        onChange={(e) => setData({...data, title: e.target.value})}
-      />
-      <RedditTextField
-        label="Product Details"
-        defaultValue=""
-        id="reddit-input"
-        variant="filled"
-        style={{ marginTop: 11 }}
-        fullWidth
-        onChange={(e) => setData({...data, details: e.target.value})}
-      />
-      <RedditTextField
-        label="Product Price"
-        defaultValue=""
-        id="reddit-input"
-        variant="filled"
-        style={{ marginTop: 11 }}
-        fullWidth
-        onChange={(e) => setData({...data, price: parseFloat(e.target.value)})}
-      />
-      <RedditTextField
-        label="Product Rating"
-        defaultValue=""
-        id="reddit-input"
-        variant="filled"
-        style={{ marginTop: 11 }}
-        fullWidth
-        onChange={(e) => setData({...data, rating: parseFloat(e.target.value)})}
-      />
-      <FormControlLabel control={<Checkbox />} label="Has Discount" onChange={e => setIsDiscount(e.target.checked)} />
-      {isDiscount && 
-      <RedditTextField
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <Item>
+            <TextField
+              label="Product Title"
+              defaultValue=""
+              id="reddit-input"
+              variant="outlined"
+              style={{ marginTop: 11 }}
+              fullWidth
+              onChange={(e) => setData({...data, title: e.target.value})}
+            />
+          </Item>
+        </Grid>
+        
+        <Grid item xs={4}>
+          <Item>
+            <TextField
+              label="Product Price"
+              defaultValue=""
+              id="reddit-input"
+              variant="outlined"
+              style={{ marginTop: 11 }}
+              fullWidth
+              onChange={(e) => setData({...data, price: parseFloat(e.target.value)})}
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={4}>
+          <Item>
+            <TextField
+              label="Product Rating"
+              defaultValue=""
+              id="reddit-input"
+              variant="outlined"
+              style={{ marginTop: 11 }}
+              fullWidth
+              onChange={(e) => setData({...data, rating: parseFloat(e.target.value)})}
+            />
+          </Item>
+        </Grid>
+        <Grid item xs={8}>
+          <Item>
+            <TextField
+              label="Product Details"
+              defaultValue=""
+              id="reddit-input"
+              variant="outlined"
+              style={{ marginTop: 11 }}
+              fullWidth
+              onChange={(e) => setData({...data, details: e.target.value})}
+            />
+          </Item>
+        </Grid>
+      </Grid>
+        {isDiscount && 
+        <TextField
         label="Product Discount "
         defaultValue=""
         id="reddit-input"
-        variant="filled"
+        variant="outlined"
         style={{ marginTop: 11 }}
-        fullWidth
         onChange={(e) => setData({...data, discount: parseFloat(e.target.value)})}
-      />}
-      <h4 className="my-3">Add Images For Product</h4>
-        <input
-            type="file" 
-            name="productImg"
-            onChange={ (e) => setData({...data, images: [...data.images, e.target.files[0]]}) } 
-          />
-        <div className="my-3"><Button type="submit" variant="contained">Add Produt</Button></div>
+        />}<br/>
+        <FormControlLabel control={<Checkbox />} label="Has Discount" onChange={e => setIsDiscount(e.target.checked)} />
+        <h4 className="my-3">Add Images For Product</h4>
+            <IconButton color="primary" aria-label="upload picture" component="label">
+              <input hidden accept="image/*" type="file" 
+              name="productImg"
+              onChange={ (e) => setData({...data, images: [...data.images, e.target.files[0]]}) }  />
+              <PhotoCamera /> Upload Image
+            </IconButton>
+
+        <Box sx={{display : 'flex',justifyContent : 'space-around'}}>
+          <div className="my-3"><Button size='large' type="submit" variant="contained" color='warning'>submit</Button></div>
+          <div className="my-3"><Button size='large' variant="contained" color='inherit'>Cancel</Button></div>
+        </Box>
       </form>
     </div>
-    </>
+    </div>
   )
 }
 
 export default Content
 
-const RedditTextField = styled((props) => (
-    <TextField InputProps={{ disableUnderline: true }} {...props} />
-  ))(({ theme }) => ({
-    '& .MuiFilledInput-root': {
-      border: '1px solid #e2e2e1',
-      overflow: 'hidden',
-      borderRadius: 4,
-      backgroundColor: theme.palette.mode === 'light' ? '#fcfcfb' : '#2b2b2b',
-      transition: theme.transitions.create([
-        'border-color',
-        'background-color',
-        'box-shadow',
-      ]),
-      '&:hover': {
-        backgroundColor: 'transparent',
-      },
-      '&.Mui-focused': {
-        backgroundColor: 'transparent',
-        boxShadow: `${alpha(theme.palette.primary.main, 0.25)} 0 0 0 2px`,
-        borderColor: theme.palette.primary.main,
-      },
-    },
-  }));
+
   

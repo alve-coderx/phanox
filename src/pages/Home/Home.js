@@ -1,6 +1,7 @@
 import Navbar from "../../Components/Navbar/Navbar"
 import Head from '../../Components/Head/Head'
 import Products from '../../Components/Products/Products'
+import PetterProducts from '../../Components/Products/PetterProducts'
 import Footer from "../../Components/Footer/Footer"
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../features/admin/adminSlice'
@@ -37,6 +38,7 @@ const Home = () => {
         </div>
         
     <Products products={data?.data} />
+    <PetterProducts products={data?.data} />
     <Footer />
     </>
   )
