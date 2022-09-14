@@ -8,7 +8,6 @@ export const BannerContainer = styled(Box)(({ matches, theme }) => ({
   width: "100%",
   height: "100%",
   padding: "0px 0px",
-  marginTop : '50px',
   paddingTop : '50px',
   paddingBottom : '50px',
   [theme.breakpoints.down("sm")]: {
@@ -78,7 +77,6 @@ export const BannerShopButton = styled(Button, {
   padding: "20px 0px",
   color: Colors.white,
   fontWeight: "bold",
-  background : '#bda683',
   fontSize: "16px",
   [theme.breakpoints.down("sm")]: {
     padding: "10px 0px",

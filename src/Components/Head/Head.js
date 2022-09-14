@@ -15,11 +15,11 @@ export default function Banner() {
 
   return (
     <>
-      <BannerContainer >
+      <BannerContainer style={{background : '#bda683'}}>
       <BannerImage src="https://i.ibb.co/t24T1Mg/27.jpg" />
       <BannerContent>
         <Typography variant="h6">Huge Collection</Typography>
-        <BannerTitle variant="h2">
+        <BannerTitle variant="h2" style={{color : '#181818'}}>
           Digital Febric Design
         </BannerTitle>
 
@@ -28,9 +28,10 @@ export default function Banner() {
           tempor incididunt ut labore et dolore magna
         </BannerDescription>
 
-        <BannerShopButton>Shop Now</BannerShopButton>
+        <BannerShopButton style={{background : '#181818'}}>Shop Now</BannerShopButton>
       </BannerContent>
     </BannerContainer>
+
     <BannerContainer style={{background : '#181818'}}>
       <BannerContent>
         <BannerTitle style={{color : '#bda683'}} variant="h2">
@@ -42,7 +43,7 @@ export default function Banner() {
           tempor incididunt ut labore et dolore magna
         </BannerDescription>
 
-        <BannerShopButton>Create Now</BannerShopButton>
+        <BannerShopButton style={{background : '#bda683'}}>Create Now</BannerShopButton>
       </BannerContent>
       <BannerImage src="https://i.ibb.co/c83RyMP/31.jpg" />
     </BannerContainer>
