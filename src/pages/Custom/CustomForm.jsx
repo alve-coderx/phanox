@@ -1,34 +1,57 @@
-import React,{Fragment, useState} from 'react';
+import React,{Fragment, useContext, useEffect, useState} from 'react';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import { PhotoCamera } from '@mui/icons-material';
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { addCustomProduct } from '../../features/admin/customActions';
 import { TextField, Typography } from '@mui/material'
 import { Box, Container } from '@mui/system'
+import CartDataAPI from "../../cartDataAPI"
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+const steps = ['Select sample design', 'Give a name', 'Give some note'];
 
 export default function HorizontalNonLinearStepper() {
+  const [ itemData, setItemData ] = useState({})
+  const { data, isLoading } = useSelector(state => state.product)
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [imgurl, setImgurl] = useState('');
   const [description,setDescription] = useState('');
+  const { cartData, setCartData } = useContext(CartDataAPI)
   const [name,setName] = useState('');
   const dispatch = useDispatch()
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const customProduct = {
-      image : URL.createObjectURL(selectedImage),
-      description,
-      name,
-      productId : 654654654654
-    }
 
-    console.log(customProduct)
-    dispatch(addCustomProduct(customProduct))
+
+  
+  useEffect(() => {
+    setItemData({
+      productId: 654654654654,
+      title: name,
+      price: "60",
+      discount: "50",
+      images: [
+        {
+          src : imgurl
+        }
+      ],
+      rating: "5",
+      quantity: 1,
+    })
+}, [data, isLoading,imgurl])
+
+
+ 
+  const addItem = () => {
+    const isFound = cartData.items.some(item => item.productId === itemData.productId )
+
+    if ( !isFound ) {
+      setCartData({items: [itemData, ...cartData.items]})
+    } else {
+      const newCartData = cartData.items.filter(item => item.productId !== itemData.productId)
+      setCartData({ items: newCartData})
+    }
   }
   const totalSteps = () => {
     return steps.length;
@@ -90,7 +113,7 @@ export default function HorizontalNonLinearStepper() {
       <div>
           <Fragment>
           <Container sx={{display :'flex', flexDirection : 'column', alignItems : 'center'}}>
-             <form onSubmit={handleSubmit}>
+             <form>
                 {activeStep === 0 ? 
                 (
                 <Box sx={{marginY : '50px'}}>
@@ -98,7 +121,7 @@ export default function HorizontalNonLinearStepper() {
                     <h4 className="my-3">Add Images For Product</h4>
                     <Button variant="outlined" fullWidth style={{color : '#bda683',background : '#181818'}} component="label">
                     <input hidden accept="image/*" type="file" onChange={(event) => {
-                        setSelectedImage(event.target.files[0]);
+                        setImgurl(URL.createObjectURL(event.target.files[0]));
                         }}/>
                     <PhotoCamera />
                     </Button>
@@ -143,7 +166,7 @@ export default function HorizontalNonLinearStepper() {
                         Back
                     </Button>
                     {
-                        activeStep === 2 && (<Button style={{width: '200px', borderRadius: '0',backgroundColor : '#181818',color : '#bda683'}} variant="outlined" color='success'>Add to cart</Button>)
+                        activeStep === 2 && (<Button onClick={() => addItem()} style={{width: '200px', borderRadius: '0',backgroundColor : '#181818',color : '#bda683'}} variant="outlined" color='success'>Add to cart</Button>)
                     }
                     <Box sx={{ flex: '1 1 auto' }} />
                     <Button disabled={activeStep === 2} onClick={handleNext} sx={{ mr: 1 }}>
