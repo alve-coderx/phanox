@@ -11,13 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { PhotoCamera } from '@mui/icons-material';
 import { Box } from '@mui/system';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+
 
 const dataSchema = {
     title: '',
@@ -67,8 +61,8 @@ const Content = ({prodata}) => {
     }
 
   return (
-    <div style={{backgroundColor : '#fafbfe'}}>
-    <div className='add_product_Container mx-5 p-md-5 mb-2'>
+    <div>
+    <div className='add_product_Container'>
         <ul style={{maxHeight: '400px', overflow: 'auto'}}>
             {prodata?.map(pro => (
                 <li key={pro._id} style={{backgroundColor: 'white'}} className="p-2 px-4">
@@ -85,63 +79,56 @@ const Content = ({prodata}) => {
       </ul>
     </div>
     {/* add form to add product */}
-    <div className="w-75 mx-5 p-5 " style={{background : 'white'}}>
+    <div className="mx-5 p-5 " style={{background : '#1f2128',borderRadius : '20px',color:'white'}}>
       <h2 className="">Product add</h2>
       <h4 className="">Create new product</h4>
       <form onSubmit={handleAddProduct}>
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <Item>
-            <TextField
+            
+            <input 
               label="Product Title"
               defaultValue=""
               id="reddit-input"
-              variant="outlined"
-              style={{ marginTop: 11 }}
+              variant="filled"
               fullWidth
-              onChange={(e) => setData({...data, title: e.target.value})}
-            />
-          </Item>
+              onChange={(e) => setData({...data, title: e.target.value})}            
+              type="text" className="form-control" placeholder="Product Name" aria-label="Username" aria-describedby="basic-addon1"/>
+
         </Grid>
         
         <Grid item xs={4}>
-          <Item>
-            <TextField
-              label="Product Price"
+            
+            <input 
               defaultValue=""
               id="reddit-input"
-              variant="outlined"
-              style={{ marginTop: 11 }}
               fullWidth
-              onChange={(e) => setData({...data, price: parseFloat(e.target.value)})}
-            />
-          </Item>
+              onChange={(e) => setData({...data, price: parseFloat(e.target.value)})}            
+              type="text" className="form-control" placeholder="Username" aria-label="Product Price" aria-describedby="basic-addon1"/>
+
         </Grid>
         <Grid item xs={4}>
-          <Item>
-            <TextField
-              label="Product Rating"
+            
+            <input 
+              abel="Product Rating"
               defaultValue=""
               id="reddit-input"
-              variant="outlined"
-              style={{ marginTop: 11 }}
+              variant="filled"
               fullWidth
-              onChange={(e) => setData({...data, rating: parseFloat(e.target.value)})}
-            />
-          </Item>
+              onChange={(e) => setData({...data, rating: parseFloat(e.target.value)})}            
+              type="text" className="form-control" placeholder="Username" aria-label="Product Rateing" aria-describedby="basic-addon1"/>
+
         </Grid>
         <Grid item xs={8}>
-          <Item>
-            <TextField
+            <input
               label="Product Details"
               defaultValue=""
               id="reddit-input"
-              variant="outlined"
-              style={{ marginTop: 11 }}
+              variant="filled"
               fullWidth
               onChange={(e) => setData({...data, details: e.target.value})}
+              type="text" className="form-control" placeholder="Username" aria-label="Product Description" aria-describedby="basic-addon1"
             />
-          </Item>
         </Grid>
       </Grid>
         {isDiscount && 
@@ -155,7 +142,7 @@ const Content = ({prodata}) => {
         />}<br/>
         <FormControlLabel control={<Checkbox />} label="Has Discount" onChange={e => setIsDiscount(e.target.checked)} />
         <h4 className="my-3">Add Images For Product</h4>
-            <IconButton color="primary" aria-label="upload picture" component="label">
+            <IconButton style={{background : '#7364db',borderRadius : '20px',color: 'white'}} aria-label="upload picture" component="label">
               <input hidden accept="image/*" type="file" 
               name="productImg"
               onChange={ (e) => setData({...data, images: [...data.images, e.target.files[0]]}) }  />
@@ -163,8 +150,8 @@ const Content = ({prodata}) => {
             </IconButton>
 
         <Box sx={{display : 'flex',justifyContent : 'space-around'}}>
-          <div className="my-3"><Button size='large' type="submit" variant="contained" color='warning'>submit</Button></div>
-          <div className="my-3"><Button size='large' variant="contained" color='inherit'>Cancel</Button></div>
+          <div className="my-3"><Button size='large' type="submit" variant="contained" style={{background : '#7364db',borderRadius : '20px'}}>submit</Button></div>
+          <div className="my-3"><Button size='large' variant="contained" style={{background : '#7364db',borderRadius : '20px'}}>Cancel</Button></div>
         </Box>
       </form>
     </div>

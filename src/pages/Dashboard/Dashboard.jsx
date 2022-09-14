@@ -14,6 +14,7 @@ import { FiPlus, FiShoppingBag } from 'react-icons/fi';
 import { TbBrandProducthunt,TbShoppingCartDiscount } from 'react-icons/tb';
 import {FcManager,FcSalesPerformance,FcPositiveDynamic} from 'react-icons/fc'
 import {BiCategory,BiCategoryAlt} from 'react-icons/bi'
+import { Avatar } from '@mui/material';
 
 const links = [
   {
@@ -71,7 +72,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   ({ theme, open }) => ({
     '& .MuiDrawer-paper': {
       position: 'relative',
-      backgroundColor : 'white',
+      backgroundColor : '#1f2128',
       whiteSpace: 'nowrap',
       width: drawerWidth,
       transition: theme.transitions.create('width', {
@@ -113,17 +114,20 @@ function DashboardContent() {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'flex-end',
+              justifyContent: 'space-between',
               px: [1],
-              backgroundColor : '#181818'
+              backgroundColor : '#1f2128'
             }}
           >
+            <Box>
+                <Avatar src='http://wp.alithemes.com/html/frox/demos/assets/images/avatar-layouts-5.png'/>
+              </Box>
             <IconButton style={{color : '#bda683'}} onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
           </Toolbar>
           <Divider />
-            <List  component='nav'>
+            <List component='nav'>
               <Box sx={{display : 'flex', flexDirection : 'column',alignItems : 'center'}}>
                 {
                   links.map((link) => (
@@ -136,7 +140,7 @@ function DashboardContent() {
         <Box
           component="main"
           sx={{
-           
+            background : '#181818',
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',

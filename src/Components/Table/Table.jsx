@@ -9,7 +9,7 @@ function ResponsiveExample() {
     <Box>
         <Table responsive>
           <thead>
-            <tr>
+            <tr style={{color:'white'}}>
                 <th>product image</th>
                 <th>#product id</th>
                 <th>product title</th>
@@ -19,17 +19,17 @@ function ResponsiveExample() {
                 <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{color:'white'}}>
             {
                 petterns.map((product) => (
                     <tr key={product.productId}>
-                        <td><Avatar alt="Remy Sharp" src={product?.images[0].src}/></td>
-                        <td>{product.productId}</td>
-                        <td>{product.title}</td>
-                        <td>{product.discount}%</td>
-                        <td>{product.price}</td>
-                        <td>{product.color}</td>
-                        <td><RemoveRedEyeIcon/><EditIcon/><DeleteOutlineIcon/></td>
+                        <td style={{padding : '20px'}}><Avatar alt="Remy Sharp" src={product?.images[0].src}/></td>
+                        <td style={{padding : '20px'}}>{product.productId}</td>
+                        <td style={{padding : '20px'}}>{product.title}</td>
+                        <td style={{padding : '20px'}}>{product.discount}%</td>
+                        <td style={{padding : '20px'}}>{product.price}</td>
+                        <td style={{padding : '20px'}}>{product.color}</td>
+                        <td style={{padding : '20px'}}><RemoveRedEyeIcon/><EditIcon/><DeleteOutlineIcon/></td>
                     </tr>
                 ))
             }
