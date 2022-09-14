@@ -24,7 +24,7 @@ const Home = () => {
     <>
     <Navbar/>
     <Head />
-      <div style={{position: 'fixed',bottom: "0",right : "0"}}>
+      <div style={{position: 'fixed',bottom: "0",right : "0",zIndex :'1'}}>
           {
           filterOn ? (
             <ChatBox/>
