@@ -21,7 +21,7 @@ export default function Footer() {
     <Box
       sx={{
         background: "#eeeeee",
-        color: "#ba9467",
+        color: "#324d67",
         p: { xs: 4, md: 10 },
         pt: 12,
         pb: 12,
@@ -42,9 +42,9 @@ export default function Footer() {
               color: Colors.dove_gray,
             }}
           >
-            <FacebookIcon sx={{ mr: 1 ,color : '#ba9467'}} />
-            <TwitterIcon sx={{ mr: 1,color : '#ba9467' }} />
-            <InstagramIcon sx={{color : '#ba9467'}}/>
+            <FacebookIcon sx={{ mr: 1 ,color : '#324d67'}} />
+            <TwitterIcon sx={{ mr: 1,color : '#324d67' }} />
+            <InstagramIcon sx={{color : '#324d67'}}/>
           </Box>
         </Grid>
         <Grid item md={6} lg={2}>

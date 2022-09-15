@@ -2,11 +2,19 @@ import { Col, Container, Spinner } from 'react-bootstrap'
 import ProductStyled from './ProductsStyled.styled'
 import {petterns, products} from '../../fake/fake'
 import { Button } from '@mui/material'
+import {Swiper,SwiperSlide} from 'swiper/react'
 import { Link } from 'react-router-dom'
+import {motion} from 'framer-motion'
+import { useRef,useState,useEffect } from 'react';
 import './style.css'
 import { FiStar } from 'react-icons/fi'
 const Products = () => {
+    const [width,setWidth]= useState(0);
+    const carousel = useRef()
     
+    useEffect(() =>{
+        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
+    },[])
   return (
     <>
     <ProductStyled>
@@ -20,28 +28,35 @@ const Products = () => {
                 }
             </div>
             <div className='marquee'>
-                <div className='maylike-products-container track'>
-                {
-                    products.map((product) => (
-                        <Link to={`/products/${product.productId}`} style={{textDecoration : 'none'}}>
-                            <div>
-                                <div className="product-card">
-                                    <img 
-                                        src={product.images[0].src}
-                                        width={250}
-                                        height={250}
-                                        className="product-image"
-                                    />
-                                    <p className="product-name">{product.title}</p>
-                                    <p className="product-price">{product.price}</p>
-                                </div>
-                            </div>
-                        </Link>
-                        ))
-                    }
+                    <div className='maylike-products-container track'>
+                    <motion.div ref={carousel} className='carousel'>
+                        <motion.div
+                            drag='x'
+                            dragConstraints={{right:0,left : -width}}
+                            className='inner-carousel'
+                        >
+                            {
+                                products.map((product) => (
+                                    <motion.div className='item'>
+                                                <div>
+                                                    <div className="product-card">
+                                                        <img 
+                                                            src={product.images[0].src}
+                                                            width={250}
+                                                            height={250}
+                                                            className="product-image"
+                                                        />
+                                                        <Link to={`/product/${product.productId}`}><p className="product-price">{product.title}</p></Link>
+                                                        <p className="product-price">{product.price}</p>
+                                                    </div>
+                                                </div>
+                                    </motion.div>
+                                    ))
+                                }
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </div>
-            
+            </div>     
         </Container>
     </ProductStyled>
     </>
