@@ -6,6 +6,8 @@ body{margin-top:20px;
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
+        padding-top:  20px;
+        padding-bottom:  20px;
     }
     
     @media only screen and (max-width:768px) {
@@ -15,7 +17,7 @@ body{margin-top:20px;
     }
     
     .contact input {
-        background: #fff;
+        background: #ede9e8;
         border: 1px solid #fff;
         border-radius: 3px;
         -webkit-box-shadow: none;
@@ -33,7 +35,7 @@ body{margin-top:20px;
     }
     
     .contact textarea {
-        background: #fff;
+        background: #ede9e8;
         border: 1px solid #fff;
         border-radius: 3px;
         -webkit-box-shadow: none;
@@ -81,7 +83,7 @@ body{margin-top:20px;
         -webkit-transition: all 0.3s ease 0s;
         -o-transition: all 0.3s ease 0s;
         transition: all 0.3s ease 0s;
-        background: #bda683;
+        background: #9e7646;
         font-family: 'poppins', sans-serif;
         cursor: pointer;
         width: 100%;
@@ -89,7 +91,7 @@ body{margin-top:20px;
     
     .btn-contact-bg:hover,
     .btn-contact-bg:focus {
-        background: #232434;
+        background: #8f7454;
         color: #fff;
     }
     
@@ -127,8 +129,8 @@ body{margin-top:20px;
     }
     
     .single_address:hover i {
-        background: #bda683;
-        color: #fff;
+        background: #ede9e8;
+        color: #9e7646;
     }
     
     .single_address h4 {

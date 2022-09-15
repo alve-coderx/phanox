@@ -7,7 +7,7 @@ const ContectUs = () => {
   return (
     <div>
 		<Navbar/>
-      	<div id="contact" className="contact-area section-padding my-5">
+      	<div id="contact" className="contact-area section-padding my-5" style={{background : 'white'}}>
 			<div className="container">										
 				<div className="section-title text-center">
 					<h1>Get in Touch</h1>
@@ -28,7 +28,7 @@ const ContectUs = () => {
 										<input type="text" name="subject" className="form-control" placeholder="Subject" required="required"/>
 									</div>
 									<div className="mt-2 form-group col-md-12">
-										<textarea rows="6" name="message" className="form-control" placeholder="Your Message" required="required"></textarea>
+										<textarea type="text" rows="6" name="message" className="form-control" placeholder="Your Message" required="required"></textarea>
 									</div>
 									<div className="mt-2 col-md-12 text-center">
 										<button type="submit" value="Send message" name="submit" id="submitButton" className="btn btn-contact-bg" title="Submit Your Message!">Send Message</button>

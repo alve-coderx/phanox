@@ -22,7 +22,7 @@ const CustomDesign = () => {
   const [iscreate,setIsCreate] = useState(false);
   
   return (
-    <div>
+    <div style={{backgroundColor : 'white'}}>
       <Navbar/>
        {
         iscreate 
@@ -32,10 +32,10 @@ const CustomDesign = () => {
         ) 
         
         : (
-          <BannerContainer style={{background : '#bda683'}}>
+          <BannerContainer style={{background : '#9e7646'}}>
           <BannerImage src="https://i.ibb.co/c2s9W9v/Wall-Panel-Designs-18.jpg" />
           <BannerContent>
-            <BannerTitle variant="h2" style={{color : '#181818'}}>
+            <BannerTitle variant="h2" style={{color : 'white'}}>
               Customize Design as you want 
             </BannerTitle>
             <BannerShopButton onClick={() => setIsCreate(true)} style={{background : '#181818'}}>Create Now</BannerShopButton>

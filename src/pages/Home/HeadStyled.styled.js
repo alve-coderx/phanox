@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const HeadStyled = styled.div`
-    background-color: #333;
+    background-color: #ffffff;
     background-image: url('./mosque.jpg');
     background-position:  center;
     background-size: cover;

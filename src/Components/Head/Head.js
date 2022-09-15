@@ -16,11 +16,11 @@ export default function Banner() {
 
   return (
     <>
-      <BannerContainer style={{background : '#bda683'}}>
+      <BannerContainer style={{background : 'white'}}>
       <BannerImage src="https://i.ibb.co/t24T1Mg/27.jpg" />
       <BannerContent>
-        <Typography variant="h6">Huge Collection</Typography>
-        <BannerTitle variant="h2" style={{color : '#181818'}}>
+        <Typography variant="h4" style={{color : '#181818'}}>Huge Collection</Typography>
+        <BannerTitle variant="h2" style={{color : '#ba9467'}}>
           Digital Febric Design
         </BannerTitle>
 
@@ -29,22 +29,22 @@ export default function Banner() {
           tempor incididunt ut labore et dolore magna
         </BannerDescription>
 
-        <BannerShopButton style={{background : '#181818'}}><Link style={{textDecoration : 'none',color : '#bda683'}} to='/shop/designs'>Shop Now</Link></BannerShopButton>
+        <BannerShopButton style={{background : '#ba9467'}}><Link style={{textDecoration : 'none',color : '#e6e7e9'}} to='/shop/designs'>Shop Now</Link></BannerShopButton>
       </BannerContent>
     </BannerContainer>
 
-    <BannerContainer style={{background : '#181818'}}>
+    <BannerContainer style={{background : '#e6e7e9'}}>
       <BannerContent>
-        <BannerTitle style={{color : '#bda683'}} variant="h2">
+        <BannerTitle style={{color : '#181818'}} variant="h2">
           Create Custom Design
         </BannerTitle>
 
-        <BannerDescription style={{color : '#bda683'}} variant="subtitle">
+        <BannerDescription style={{color : '#181818'}} variant="subtitle">
           Torem ipsum dolor sit amet, consectetur adipisicing elitsed do eiusmo
           tempor incididunt ut labore et dolore magna
         </BannerDescription>
 
-        <BannerShopButton style={{background : '#bda683'}}><Link style={{textDecoration : 'none',color : '#181818'}} to='/custom'>Create Now</Link></BannerShopButton>
+        <BannerShopButton style={{background : '#ba9467'}}><Link style={{textDecoration : 'none',color : 'white'}} to='/custom'>Create Now</Link></BannerShopButton>
       </BannerContent>
       <BannerImage src="https://i.ibb.co/c83RyMP/31.jpg" />
     </BannerContainer>

@@ -1,6 +1,6 @@
 import { Col, Container, Spinner } from 'react-bootstrap'
 import ProductStyled from './ProductsStyled.styled'
-import {products} from '../../fake/fake'
+import {petterns, products} from '../../fake/fake'
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
 import './style.css'
@@ -10,42 +10,38 @@ const Products = () => {
   return (
     <>
     <ProductStyled>
-        <Container fluid className="my-5 d-flex flex-column align-items-center">
-            <div className="text-center" style={{color: '#324d67'}}>
+        <Container fluid className="py-5 d-flex flex-column" style={{backgroundColor: 'white'}}>
+            <div className="text-center " style={{color: '#324d67',display :'flex',justifyContent:'space-between'}}>
                 <h2 className="fw-bold">Best Seller Products</h2>
-            </div>
-            <div className="row pb-5 mb-4">
-            {!products?.length > 0 ? <div className="pt-4 pb-4 mt-5 d-flex justify-content-center align-items-center"><Spinner animation="grow" variant=" " /></div> : <div className="d-flex justify-content-center flex-wrap mt-5">
-                {products?.map((product, ind) => (
-                        <div key={product.productId} className="col-lg-2 col-md-6 mb-4 m-lg-2">
-                            <Link to={`/products/${product.productId}`} style={{textDecoration : 'none'}}>
-                                    <div className="card rounded shadow-sm border-0">
-                                        <div className="card-body p-4"><img src={product.images[0].src} alt="" className="img-fluid d-block mx-auto mb-3"/>
-                                        <h5>{product.title}</h5>
-                                        <p className="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <div className='d-flex justify-content-between'>
-                                            <p className="small font-italic">{product.price}</p>
-                                            <p className="small font-italic" style={{background : '#ffc74c',padding:'3px 10px',color : '#181818'}}>{product.discount}% Off</p>
-                                        </div>
-                                        <ul className="list-inline small">
-                                            {[1,2,3,4,5].map((index)=>(
-                                                <li key={index} className="list-inline-item m-0"><FiStar/></li>
-                                            ))}
-                                        </ul>
-                                        </div>
-                                    </div>
-                            </Link>
-                        </div>
+                {
+                    window.location.pathname === '/shop/designs' ? "" : (
+                        <Button variant='outlined' style={{border:'none',backgroundColor : '#bda683'}}><Link to='/shop/designs' style={{color:'black',textDecoration : 'none'}}>See all</Link></Button>
                     )
-                )}
-            </div>}
+                }
+            </div>
+            <div className='marquee'>
+                <div className='maylike-products-container track'>
+                {
+                    products.map((product) => (
+                        <Link to={`/products/${product.productId}`} style={{textDecoration : 'none'}}>
+                            <div>
+                                <div className="product-card">
+                                    <img 
+                                        src={product.images[0].src}
+                                        width={250}
+                                        height={250}
+                                        className="product-image"
+                                    />
+                                    <p className="product-name">{product.title}</p>
+                                    <p className="product-price">{product.price}</p>
+                                </div>
+                            </div>
+                        </Link>
+                        ))
+                    }
+                </div>
             </div>
             
-            {
-                window.location.pathname === '/shop/designs' ? "" : (
-                    <Button variant='outlined' className='w-50' style={{border:'none',backgroundColor : '#bda683'}}><Link to='/shop/designs' style={{color:'black',textDecoration : 'none'}}>See all</Link></Button>
-                )
-            }
         </Container>
     </ProductStyled>
     </>

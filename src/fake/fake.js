@@ -138,6 +138,33 @@ export const products = [
       productId: 6,
       images: [
         {
+          src: "https://i.ibb.co/bHbJxy5/54.jpg",
+          alt: "Two each of gray, white, and black shirts laying flat.",
+        },
+        {
+          src: "https://i.ibb.co/ynL0zh0/55.jpg",
+          alt: "Model wearing plain black basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/pJs1jHh/56.jpg",
+          alt: "Model wearing plain gray basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/6XjtSC0/58.jpg",
+          alt: "Model wearing plain white basic tee.",
+        },
+      ],
+      discount : '50',
+      price: '$35',
+      title: 'Basic Tee',
+      href: '#',
+      imageAlt: "Front of men's Basic Tee in black.",
+      color: 'Black',
+    },
+    {
+      productId: 7,
+      images: [
+        {
           src: "https://i.ibb.co/9W3bznR/02.jpg",
           alt: "Two each of gray, white, and black shirts laying flat.",
         },
@@ -151,6 +178,87 @@ export const products = [
         },
         {
           src: "https://i.ibb.co/kHk38st/05.jpg",
+          alt: "Model wearing plain white basic tee.",
+        },
+      ],
+      discount : '50',
+      price: '$35',
+      title: 'Basic Tee',
+      href: '#',
+      imageAlt: "Front of men's Basic Tee in black.",
+      color: 'Black',
+    },
+    {
+      productId: 8,
+      images: [
+        {
+          src: "https://i.ibb.co/ydmwnN1/19.jpg",
+          alt: "Two each of gray, white, and black shirts laying flat.",
+        },
+        {
+          src: "https://i.ibb.co/SxJ4P9Z/20.jpg",
+          alt: "Model wearing plain black basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/VD0bSSg/21.jpg",
+          alt: "Model wearing plain gray basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/8x5SPnd/23.jpg",
+          alt: "Model wearing plain white basic tee.",
+        },
+      ],
+      discount : '50',
+      price: '$35',
+      title: 'Basic Tee',
+      href: '#',
+      imageAlt: "Front of men's Basic Tee in black.",
+      color: 'Black',
+    },
+    {
+      productId: 9,
+      images: [
+        {
+          src: "https://i.ibb.co/0Z2pDTC/59.jpg",
+          alt: "Two each of gray, white, and black shirts laying flat.",
+        },
+        {
+          src: "https://i.ibb.co/Ss9vKXn/60.jpg",
+          alt: "Model wearing plain black basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/17ZpR5N/01.jpg",
+          alt: "Model wearing plain gray basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/9W3bznR/02.jpg",
+          alt: "Model wearing plain white basic tee.",
+        },
+      ],
+      discount : '50',
+      price: '$35',
+      title: 'Basic Tee',
+      href: '#',
+      imageAlt: "Front of men's Basic Tee in black.",
+      color: 'Black',
+    },
+    {
+      productId: 10,
+      images: [
+        {
+          src: "https://i.ibb.co/2nY2FCm/03.jpg",
+          alt: "Two each of gray, white, and black shirts laying flat.",
+        },
+        {
+          src: "https://i.ibb.co/Wt5hw2V/04.jpg",
+          alt: "Model wearing plain black basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/kHk38st/05.jpg",
+          alt: "Model wearing plain gray basic tee.",
+        },
+        {
+          src: "https://i.ibb.co/M5TBWLQ/06.jpg",
           alt: "Model wearing plain white basic tee.",
         },
       ],

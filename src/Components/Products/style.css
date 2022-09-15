@@ -1,23 +1,61 @@
-.social-link {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    border-radius: 50%;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-  }
-  
-  .social-link:hover,
-  .social-link:focus {
-    background: #ddd;
-    text-decoration: none;
-    color: #555;
-  }
-  
-  .progress {
-    height: 10px;
-  }
+.maylike-products-wrapper{
+  margin-top: 120px;
+}
+.maylike-products-wrapper h2{
+  text-align: center;
+  margin: 50px;
+  color: #324d67;
+
+  font-size: 28px;
+}
+
+
+.marquee {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
+  width: 180%;
+}
+.track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+.maylike-products-container{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+
+.product-card{
+  cursor: pointer;
+   transform: scale(1, 1);
+   transition: transform 0.5s ease;
+  color: #324d67;
+ 
+ }
+ .product-card:hover{
+   transform: scale(1.1,1.1)
+ }
+
+
+ .product-image{
+  border-radius: 15px;
+ background-color: #ebebeb;
+  transform: scale(1, 1);
+  transition: transform 0.10s ease;
+}
