@@ -26,39 +26,40 @@ const Products = () => {
                     )
                 }
             </div>
-                <div className='marquee'>
-                    <div className='maylike-products-container track'>
-                        <motion.div ref={carousel} className='carousel'>
-                                <motion.div
-                                    drag='x'
-                                    dragConstraints={carousel}
-                                    className='inner-carousel'
-                                > 
-                                {
-                                    petterns.map((product) => (
-                                
-                                        <motion.div className='item'>
-                                                <div className="product-card">
-                                                    <img 
-                                                        src={product.images[0].src}
-                                                        width={250}
-                                                        height={250}
-                                                        className="product-image"
-                                                    />
-                                                    <p className="product-name">{product.price}</p>
-                                                    <Link to={`/product/${product.productId}`}><p className="product-price">{product.title}</p></Link>
+                <motion.div ref={carousel} className='carousel '>
+                        <motion.div
+                            drag='x'
+                            dragConstraints={{
+                                right:0,
+                                left: -width
+                            }}
+                            className='inner-carousel'
+                        > 
+                        {
+                            petterns.map((product) => (
+                                <motion.div className='item'>
+                                    <Link to={`/product/${product.productId}`} style={{textDecoration : 'none',color : 'black'}}>
+                                        <div>
+                                            <div className="product-card">
+                                                <img 
+                                                    src={product.images[0].src}
+                                                    width={250}
+                                                    height={250}
+                                                    className="product-image"
+                                                />
+                                                <div className='d-flex justify-content-between'>
+                                                    <p className="product-price">{product.price}</p>
+                                                    <p className="product-price">{product.discount}%</p>
                                                 </div>
-                                        </motion.div>
-                                    
-                                        ))
-                                    }
-                            </motion.div>
-                            </motion.div>
-                 
-                </div>
-            </div>
-             
-            
+                                                <p className="product-price">{product.title}</p>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </motion.div>
+                                ))
+                            }
+                    </motion.div>
+                </motion.div>
         </Container>
     </ProductStyled>
     </>
