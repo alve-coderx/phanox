@@ -32,7 +32,7 @@ const Products = () => {
                     <motion.div ref={carousel} className='carousel'>
                         <motion.div
                             drag='x'
-                            dragConstraints={{right:0,left : -width}}
+                            dragConstraints={carousel}
                             className='inner-carousel'
                         >
                             {
