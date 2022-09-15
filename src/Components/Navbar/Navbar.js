@@ -33,7 +33,7 @@
                 <div className="overlay" onClick={() => setIsCart(false)}></div>
                 </>)}
         <Container fluid>
-          <NavLink to="/" style={{textDecoration: 'none',fontWeight: '400', color: 'black', fontSize: '1.2rem',background: '#ba9467',padding : '20px'}}>
+          <NavLink to="/" style={{textDecoration: 'none',fontWeight: '400', color: '#eeeeee', fontSize: '1.2rem',background: '#ba9467',padding : '20px'}}>
              <div>PHANOX</div>
           </NavLink>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -51,13 +51,13 @@
               <div style={{cursor: 'pointer', background: '#ba9467',padding : '20px'}}>
                       <Tooltip title="Login">
                               <IconButton>
-                                      <NavLink style={{color: 'black',textDecoration : 'none'}} to='/signin'>
+                                      <NavLink style={{color: '#eeeeee',textDecoration : 'none'}} to='/signin'>
                                           <FiLogIn />
                                       </NavLink>
                               </IconButton>
                       </Tooltip>
                       <Tooltip title="Cart">
-                          <IconButton style={{color: 'black',textDecoration : 'none'}} onClick={() => setIsCart(!isCart)}>
+                          <IconButton style={{color: '#eeeeee',textDecoration : 'none'}} onClick={() => setIsCart(!isCart)}>
                               <Badge badgeContent={parseInt(cartData.items.length)} color="error">
                                   <LocalMallIcon />
                               </Badge>
