@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import adminSlice from '../features/admin/adminSlice';
 import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import {customReducer} from '../features/admin/customReducer';
+import { productReducer } from '../features/productReducers';
 
 const customizedMiddleware = getDefaultMiddleware({
   serializableCheck: false
@@ -10,8 +11,9 @@ const customizedMiddleware = getDefaultMiddleware({
 
 export const store = configureStore({
   reducer: {
-    product: adminSlice,
-    customProduct : customReducer
+    products : adminSlice,
+    customProduct : customReducer,
+    productReducer : productReducer
   },
   middleware: customizedMiddleware
 });

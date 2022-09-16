@@ -1,13 +1,12 @@
 import React from 'react'
 import Navbar from '../../Components/Navbar/Navbar'
 import Footer from '../../Components/Footer/Footer'
-import PetterProducts from '../../Components/Products/PetterProducts'
+import Card from '../../Components/Card/Card'
 
 const PetternDesign = () => {
   return (
     <div>
         <Navbar/>
-        <PetterProducts/>
         <Footer/>
     </div>
   )

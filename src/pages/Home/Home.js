@@ -4,22 +4,21 @@ import Products from '../../Components/Products/Products'
 import PetterProducts from '../../Components/Products/PetterProducts'
 import Footer from "../../Components/Footer/Footer"
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../../features/admin/adminSlice'
 import { useEffect } from "react"
 import { useState } from "react"
 import { Alert, Button } from "@mui/material"
 import { Box } from "@mui/system"
 import ChatBox from '../../Components/ChatBox/ChatBox'
+import { getProducts } from "../../features/admin/adminSlice"
 
 const Home = () => {
-  const {data} = useSelector(state => state.product)
+  const {data} = useSelector(state => state.products)
   const dispatch = useDispatch()
-  const [filterOn,setFilterOn] = useState(false);
 
   useEffect(() => {
     dispatch(getProducts())
   }, [dispatch])
-
+  const [filterOn,setFilterOn] = useState(false);
   return (
     <>
     <Navbar/>
@@ -36,8 +35,8 @@ const Home = () => {
               Do you need any help?
           </Button> 
         </div>
-    <Products products={data?.data} />
-    <PetterProducts products={data?.data} />
+        <Products products={data?.data} />
+        <PetterProducts products={data?.data} />
     <Footer />
     </>
   )

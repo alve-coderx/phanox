@@ -1,13 +1,13 @@
 import { Col, Container, Spinner } from 'react-bootstrap'
 import ProductStyled from './ProductsStyled.styled'
-import {petterns} from '../../fake/fake';
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom';
 import { FiStar } from 'react-icons/fi';
 import {motion} from 'framer-motion'
 import { useRef,useState,useEffect } from 'react';
+import Card from '../Card/Card';
 
-const Products = () => {
+const Products = ({products}) => {
     const [width,setWidth]= useState(0);
     const carousel = useRef()
     
@@ -36,28 +36,8 @@ const Products = () => {
                             className='inner-carousel'
                         > 
                         {
-                            petterns.map((product) => (
-                                <motion.div className='item'>
-                                    <Link to={`/product/${product.productId}`} style={{textDecoration : 'none',color : 'black'}}>
-                                        <div>
-                                            <div className="product-card">
-                                                <img 
-                                                    src={product.images[0].src}
-                                                    width={250}
-                                                    height={250}
-                                                    className="product-image"
-                                                />
-                                                <div className='d-flex justify-content-between'>
-                                                    <p className="product-price">{product.price}</p>
-                                                    <p className="product-price">{product.discount}%</p>
-                                                </div>
-                                                <p className="product-price">{product.title}</p>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </motion.div>
-                                ))
-                            }
+                            products?.map((product) => <Card key={product._id} product={product}/>)
+                        }
                     </motion.div>
                 </motion.div>
         </Container>

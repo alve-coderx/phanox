@@ -23,7 +23,7 @@ const dataSchema = {
 }
 
 const Content = ({prodata}) => {
-  const { ontherData } = useSelector(state => state.product)
+  const { ontherData } = useSelector(state => state.products)
   const [isDiscount, setIsDiscount] = useState(false)
   const [data, setData] = useState(dataSchema)
   const dispatch = useDispatch()

@@ -9,13 +9,14 @@ import { addCustomProduct } from '../../features/admin/customActions';
 import { TextField, Typography } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import CartDataAPI from "../../cartDataAPI"
-import { FiStar } from 'react-icons/fi';
+import RemoveIcon from '@mui/icons-material/Remove'
+import AddIcon from '@mui/icons-material/Add'
 
 const steps = ['Select sample design', 'Give a name', 'Give some note','Preview & Add to cart'];
 
 export default function HorizontalNonLinearStepper() {
   const [ itemData, setItemData ] = useState({})
-  const { data, isLoading } = useSelector(state => state.product)
+  const { data, isLoading } = useSelector(state => state.products)
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
   const [imgurl, setImgurl] = useState('');
@@ -28,19 +29,17 @@ export default function HorizontalNonLinearStepper() {
   
   useEffect(() => {
     setItemData({
-      productId: 654654654654,
+      productId: "654654654654",
       title: name,
-      price: "60",
-      discount: "50",
+      price: 60,
+      discount: 50,
       images: [
-        {
-          src : imgurl
-        }
+        imgurl
       ],
-      rating: "5",
-      quantity: 1,
+      rating: 5,
+      quantity : 1
     })
-}, [data, isLoading,imgurl])
+}, [data, isLoading])
 
 
  
@@ -160,19 +159,22 @@ export default function HorizontalNonLinearStepper() {
                 <Container className="my-5 d-flex flex-column align-items-center">
                     <div key={itemData.productId}>
                         <div className="card rounded shadow-sm border-0">
-                          <div className="card-body p-4"><img src={itemData.images[0].src} alt="" style={{height:"276px"}} className="img-fluid d-block mx-auto mb-3"/>
+                          <div className="card-body p-4"><img src={itemData.images[0]} alt="" style={{height:"276px"}} className="img-fluid d-block mx-auto mb-3"/>
                             <h5>{itemData.title}</h5>
                             <p className="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <div className='d-flex justify-content-between'>
                                 <p className="small font-italic">{itemData.price}</p>
                                 <p className="small font-italic" style={{background : '#ffc74c',padding:'3px 10px',color : '#181818'}}>{itemData.discount}% Off</p>
                             </div>
-                          <ul className="list-inline small">
-                              {[1,2,3,4,5].map((index)=>(
-                                  <li key={index} className="list-inline-item m-0"><FiStar/></li>
-                              ))}
-                          </ul>
                           </div>
+                          <div className="d-flex align-items-center gap-3 my-4 justify-content-center justify-content-md-start">
+                              <h6>Quantity:</h6>
+                              <div className="quantity d-flex">
+                                  <button onClick={() => setItemData({...itemData, quantity: itemData.quantity - 1})} disabled={itemData.quantity === 1}><RemoveIcon className="text-success"/></button>
+                                  <span>{itemData.quantity}</span>
+                                  <button onClick={() => setItemData({...itemData, quantity: itemData.quantity + 1})} disabled={itemData.quantity === 30}><AddIcon className="text-success"/></button>
+                              </div>
+                            </div>
                     </div>
                 </div>
                 </Container>
@@ -191,7 +193,7 @@ export default function HorizontalNonLinearStepper() {
                         Back
                     </Button>
                     {
-                        activeStep === 3 && (<Button onClick={() => addItem()} style={{width: '200px', borderRadius: '0',backgroundColor : '#181818',color : '#bda683'}} variant="outlined" color='success'>Add to cart</Button>)
+                        activeStep === 3 && (<Button style={{width: '200px', borderRadius: '0',backgroundColor : '#181818',color : '#bda683'}} variant="outlined" color='success' onClick={() => addItem()}>{cartData.items.some(item => item.productId === itemData.productId ) ? 'Remove from cart' : 'Add to cart'}</Button>)
                     }
                     <Box sx={{ flex: '1 1 auto' }} />
                     <Button disabled={activeStep === 3} onClick={handleNext} sx={{ mr: 1 }}>

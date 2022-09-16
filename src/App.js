@@ -29,7 +29,6 @@ const App = () => {
     cartData,
     setCartData,
   }
-
   return (
     <>
       <Router>

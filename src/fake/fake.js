@@ -1,276 +1,165 @@
 export const products = [
-    {
-      productId: 1,
-      images: [
-        {
-          src: "https://i.ibb.co/8x5SPnd/23.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/cFXm6HH/24.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/4J37vss/25.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/3dQzvzy/26.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
-      ],
-      discount : '50',
-      price: '$35',
+  {
       title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
-    },
-    {
-      productId: 2,
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/G31T9J0/14.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/SB0rfvt/15.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/kGvTZrC/16.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/HTc3SHx/17.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/nkP7qXj/08.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '1',
     },
-    {
-      productId: 3,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/G31T9J0/14.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/SB0rfvt/15.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/kGvTZrC/16.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/HTc3SHx/17.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/jZb2CPv/09.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '2',
     },
-    {
-      productId: 4,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/7N56gcy/10.jpgx",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/wL4fZKB/11.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/KrN1yWz/12.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/pLTTcNt/13.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/7N56gcy/10.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '3',
     },
-    {
-      productId: 5,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/M5TBWLQ/06.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/gRFSkkY/07.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/nkP7qXj/08.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/jZb2CPv/09.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/wL4fZKB/11.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '4',
     },
-    {
-      productId: 6,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/bHbJxy5/54.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/ynL0zh0/55.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/pJs1jHh/56.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/6XjtSC0/58.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/KrN1yWz/12.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '5',
     },
-    {
-      productId: 7,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/9W3bznR/02.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/2nY2FCm/03.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/Wt5hw2V/04.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/kHk38st/05.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/pLTTcNt/13.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '6',
     },
-    {
-      productId: 8,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/ydmwnN1/19.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/SxJ4P9Z/20.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/VD0bSSg/21.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/8x5SPnd/23.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/G31T9J0/14.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '7',
     },
-    {
-      productId: 9,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/0Z2pDTC/59.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/Ss9vKXn/60.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/17ZpR5N/01.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/9W3bznR/02.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/SB0rfvt/15.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '8',
     },
-    {
-      productId: 10,
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
       images: [
-        {
-          src: "https://i.ibb.co/2nY2FCm/03.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://i.ibb.co/Wt5hw2V/04.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/kHk38st/05.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://i.ibb.co/M5TBWLQ/06.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
+        "https://i.ibb.co/kGvTZrC/16.jpg",
       ],
-      discount : '50',
-      price: '$35',
-      title: 'Basic Tee',
-      href: '#',
-      imageAlt: "Front of men's Basic Tee in black.",
-      color: 'Black',
+      rating : 5,
+      productId: '9',
     },
-    // More products...
+  {
+      title: 'Basic Tee',
+      details : 'Lorem ipsum dolor sit amet cons adipisicing elit sed do eiusm tempor incididunt ut labor et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+      price: 35,
+      discount : 50,
+      images: [
+        "https://i.ibb.co/HTc3SHx/17.jpg",
+      ],
+      rating : 5,
+      productId: '10',
+    },
   ]
+  // https://i.ibb.co/ynnXLSR/18.jpg
+  // https://i.ibb.co/ydmwnN1/19.jpg
+  // https://i.ibb.co/SxJ4P9Z/20.jpg
+  // https://i.ibb.co/VD0bSSg/21.jpg
+  // https://i.ibb.co/8x5SPnd/23.jpg
+  // https://i.ibb.co/cFXm6HH/24.jpg
+  // https://i.ibb.co/4J37vss/25.jpg
+  // https://i.ibb.co/3dQzvzy/26.jpg
+  // https://i.ibb.co/t24T1Mg/27.jpg
+  // https://i.ibb.co/6bfS898/28.jpg
+  // https://i.ibb.co/k8vrbW8/29.jpg
+  // https://i.ibb.co/c3hyfWG/30.jpg
+  // https://i.ibb.co/c83RyMP/31.jpg
+  // https://i.ibb.co/yk6jSC8/32.jpg
+  // https://i.ibb.co/2M1VWmW/33.jpg
+  // https://i.ibb.co/Pmdw55D/34.jpg
+  // https://i.ibb.co/zmpJ7t1/35.jpg
+  // https://i.ibb.co/hHj9wDn/36.jpg
+  // https://i.ibb.co/ZXKS5W1/37.jpg
+  // https://i.ibb.co/hZ0jL6S/38.jpg
+  // https://i.ibb.co/GdRMZR8/39.jpg
+  // https://i.ibb.co/V9Q3Xnk/40.jpg
+  // https://i.ibb.co/xJXRC8k/41.jpg
+  // https://i.ibb.co/4FYb0hP/42.jpg
+  // https://i.ibb.co/tXY8htR/43.jpg
+  // https://i.ibb.co/897Lqqz/44.jpg
+  // https://i.ibb.co/CVf0f9H/45.jpg
+  // https://i.ibb.co/L8VfBb4/46.jpg
+  // https://i.ibb.co/g799htn/47.jpg
+  // https://i.ibb.co/8bXhgQ9/48.jpg
+  // https://i.ibb.co/mHFxXNR/49.jpg
+  // https://i.ibb.co/KGHXKsz/50.jpg
+  // https://i.ibb.co/4ScmRTd/51.jpg
+  // https://i.ibb.co/WpvK9bm/52.jpg
+  // https://i.ibb.co/Dg4Hb8Y/53.jpg
+  // https://i.ibb.co/bHbJxy5/54.jpg
+  // https://i.ibb.co/ynL0zh0/55.jpg
+  // https://i.ibb.co/pJs1jHh/56.jpg
+  // https://i.ibb.co/6XjtSC0/58.jpg
+  // https://i.ibb.co/0Z2pDTC/59.jpg
+  // https://i.ibb.co/Ss9vKXn/60.jpg
+  // https://i.ibb.co/17ZpR5N/01.jpg
+  // https://i.ibb.co/9W3bznR/02.jpg
+  // https://i.ibb.co/2nY2FCm/03.jpg
+  // https://i.ibb.co/Wt5hw2V/04.jpg
+  // https://i.ibb.co/kHk38st/05.jpg
+  // https://i.ibb.co/M5TBWLQ/06.jpg
+
+
+
 export const petterns = [
     {
       productId: 1,
@@ -578,63 +467,6 @@ export const petterns = [
 
 
 
-  // https://i.ibb.co/nkP7qXj/08.jpg
-  // https://i.ibb.co/jZb2CPv/09.jpg
-  // https://i.ibb.co/7N56gcy/10.jpg
-  // https://i.ibb.co/wL4fZKB/11.jpg
-  // https://i.ibb.co/KrN1yWz/12.jpg
-  // https://i.ibb.co/pLTTcNt/13.jpg
-  // https://i.ibb.co/G31T9J0/14.jpg
-  // https://i.ibb.co/SB0rfvt/15.jpg
-  // https://i.ibb.co/kGvTZrC/16.jpg
-  // https://i.ibb.co/HTc3SHx/17.jpg
-  // https://i.ibb.co/ynnXLSR/18.jpg
-  // https://i.ibb.co/ydmwnN1/19.jpg
-  // https://i.ibb.co/SxJ4P9Z/20.jpg
-  // https://i.ibb.co/VD0bSSg/21.jpg
-  // https://i.ibb.co/8x5SPnd/23.jpg
-  // https://i.ibb.co/cFXm6HH/24.jpg
-  // https://i.ibb.co/4J37vss/25.jpg
-  // https://i.ibb.co/3dQzvzy/26.jpg
-  // https://i.ibb.co/t24T1Mg/27.jpg
-  // https://i.ibb.co/6bfS898/28.jpg
-  // https://i.ibb.co/k8vrbW8/29.jpg
-  // https://i.ibb.co/c3hyfWG/30.jpg
-  // https://i.ibb.co/c83RyMP/31.jpg
-  // https://i.ibb.co/yk6jSC8/32.jpg
-  // https://i.ibb.co/2M1VWmW/33.jpg
-  // https://i.ibb.co/Pmdw55D/34.jpg
-  // https://i.ibb.co/zmpJ7t1/35.jpg
-  // https://i.ibb.co/hHj9wDn/36.jpg
-  // https://i.ibb.co/ZXKS5W1/37.jpg
-  // https://i.ibb.co/hZ0jL6S/38.jpg
-  // https://i.ibb.co/GdRMZR8/39.jpg
-  // https://i.ibb.co/V9Q3Xnk/40.jpg
-  // https://i.ibb.co/xJXRC8k/41.jpg
-  // https://i.ibb.co/4FYb0hP/42.jpg
-  // https://i.ibb.co/tXY8htR/43.jpg
-  // https://i.ibb.co/897Lqqz/44.jpg
-  // https://i.ibb.co/CVf0f9H/45.jpg
-  // https://i.ibb.co/L8VfBb4/46.jpg
-  // https://i.ibb.co/g799htn/47.jpg
-  // https://i.ibb.co/8bXhgQ9/48.jpg
-  // https://i.ibb.co/mHFxXNR/49.jpg
-  // https://i.ibb.co/KGHXKsz/50.jpg
-  // https://i.ibb.co/4ScmRTd/51.jpg
-  // https://i.ibb.co/WpvK9bm/52.jpg
-  // https://i.ibb.co/Dg4Hb8Y/53.jpg
-  // https://i.ibb.co/bHbJxy5/54.jpg
-  // https://i.ibb.co/ynL0zh0/55.jpg
-  // https://i.ibb.co/pJs1jHh/56.jpg
-  // https://i.ibb.co/6XjtSC0/58.jpg
-  // https://i.ibb.co/0Z2pDTC/59.jpg
-  // https://i.ibb.co/Ss9vKXn/60.jpg
-  // https://i.ibb.co/17ZpR5N/01.jpg
-  // https://i.ibb.co/9W3bznR/02.jpg
-  // https://i.ibb.co/2nY2FCm/03.jpg
-  // https://i.ibb.co/Wt5hw2V/04.jpg
-  // https://i.ibb.co/kHk38st/05.jpg
-  // https://i.ibb.co/M5TBWLQ/06.jpg
 
 
 
