@@ -36,7 +36,7 @@ const Products = ({products}) => {
                     className='inner-carousel'
                 > 
                     {
-                        // products?.map((product) => <Card key={product._id} product={product}/>)
+                        products?.map((product) => <Card key={product._id} product={product}/>)
                     
                     }
                     </motion.div>
