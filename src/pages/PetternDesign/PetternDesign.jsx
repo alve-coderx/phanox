@@ -7,6 +7,7 @@ const PetternDesign = () => {
   return (
     <div>
         <Navbar/>
+        <Card/>
         <Footer/>
     </div>
   )

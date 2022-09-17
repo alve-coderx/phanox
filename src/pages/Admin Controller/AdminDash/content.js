@@ -42,17 +42,17 @@ const Content = ({prodata}) => {
       for(let i = 0; i < data.images.length; i++) {
         formData.append('productImg', data.images[i])
       }
-
+      
       // Add Product Info
       formData.append('title', data.title)
       formData.append('details', data.details)
       formData.append('price', data.price)
+      formData.append('discount', data.discount) 
       formData.append('rating', data.rating)
-      formData.append('discount', data.discount)
       formData.append('productId', v4())
-
       // Post Form Data to server
       dispatch(postProduct(formData))
+      console.log(data)
     }
 
     const handleDelProduct = (id) => {
@@ -89,23 +89,7 @@ const Content = ({prodata}) => {
               id="reddit-input"
               variant="filled"
               onChange={(e) => setData({...data, title: e.target.value})}            
-              type="text" className="w-50 m-3 form-control" placeholder="Product Name" aria-label="Username" aria-describedby="basic-addon1"/>
-
-            
-            <input 
-              defaultValue=""
-              id="reddit-input"
-              onChange={(e) => setData({...data, price: parseFloat(e.target.value)})}            
-              type="text" className="w-50 m-3 form-control" placeholder="Product Price" aria-label="Product Price" aria-describedby="basic-addon1"/>
-
-            
-            <input 
-              abel="Product Rating"
-              defaultValue=""
-              id="reddit-input"
-              variant="filled"
-              onChange={(e) => setData({...data, rating: parseFloat(e.target.value)})}            
-              type="text" className="w-50 m-3 form-control" placeholder="Product Rateing" aria-label="Product Rateing" aria-describedby="basic-addon1"/>
+              type="text" className="w-50 m-3 form-control" placeholder="Product Title" aria-label="title" aria-describedby="basic-addon1"/>
 
             <input
               label="Product Details"
@@ -113,25 +97,37 @@ const Content = ({prodata}) => {
               id="reddit-input"
               variant="filled"
               onChange={(e) => setData({...data, details: e.target.value})}
-              type="text" className="w-50 m-3 form-control" placeholder="Product Description" aria-label="Product Description" aria-describedby="basic-addon1"
+              type="text" className="w-50 m-3 form-control" placeholder="Product Details" aria-label="Product Description" aria-describedby="basic-addon1"
             />
-        {isDiscount && 
-        <input
-        defaultValue=""
-        id="reddit-input"
-        variant="filled"
-        onChange={(e) => setData({...data, discount: parseFloat(e.target.value)})}
-        type="text" className="w-50 m-3 form-control" placeholder="Product Discount" aria-label="Product Description" aria-describedby="basic-addon1"
-        />}<br/>
-        <FormControlLabel control={<Checkbox />} label="Has Discount" onChange={e => setIsDiscount(e.target.checked)} />
-        <h4 className="my-3">Add Images For Product</h4>
+            <input 
+              defaultValue=""
+              id="reddit-input"
+              onChange={(e) => setData({...data, price: parseFloat(e.target.value)})}            
+              type="text" className="w-50 m-3 form-control" placeholder="Product Price" aria-label="Product Price" aria-describedby="basic-addon1"/>
+
+            {isDiscount && 
+                  <input
+                  defaultValue=""
+                  id="reddit-input"
+                  variant="filled"
+                  onChange={(e) => setData({...data, discount: parseFloat(e.target.value)})}
+                  type="text" className="w-50 m-3 form-control" placeholder="Product Discount" aria-label="Product Description" aria-describedby="basic-addon1"
+            />}<br/>
+            <FormControlLabel control={<Checkbox />} label="Has Discount" onChange={e => setIsDiscount(e.target.checked)} />
+            <h4 className="my-3">Add Images For Product</h4>
             <IconButton style={{background : '#7364db',borderRadius : '20px',color: 'white'}} aria-label="upload picture" component="label">
               <input hidden accept="image/*" type="file" 
               name="productImg"
               onChange={ (e) => setData({...data, images: [...data.images, e.target.files[0]]}) }  />
               <PhotoCamera /> Upload Image
             </IconButton>
-
+            <input 
+              abel="Product Rating"
+              defaultValue=""
+              id="reddit-input"
+              variant="filled"
+              onChange={(e) => setData({...data, rating: parseFloat(e.target.value)})}            
+              type="text" className="w-50 m-3 form-control" placeholder="Product Rating" aria-label="Product Rateing" aria-describedby="basic-addon1"/>
         <Box sx={{display : 'flex',justifyContent : 'space-between'}}>
           <div className="my-3"><Button size='large' type="submit" variant="contained" style={{background : '#7364db',borderRadius : '20px'}}>submit</Button></div>
           <div className="my-3"><Button size='large' variant="contained" style={{background : '#7364db',borderRadius : '20px'}}>Cancel</Button></div>

@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js'
 
-const PUBLISHABLE_KEY = 'pk_test_51LKkhaKmOocwKd6s6y4NBKlyZUavlvecPZtEXLP1G59q4ivlVuRshuDYquNmZkYKT9Aw9ypaPcpzOIP6M3qWiKib00Ilx8reBQ'
+const PUBLISHABLE_KEY = 'pk_test_51LitwpGAKTvokZDbSgkwzNcuF1EtCIGdnaK9sK9cAxDwEbrYr4uKzCluF5lcwVIdfwhd4WyQG4Y3BL53fl7c7Mlg00mXT5nBqT'
 
 let stripePromise
 

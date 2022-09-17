@@ -18,6 +18,7 @@ import CustomDesign from './pages/Custom/CustomDesign'
 import MarketDesign from './pages/MarketDesign/MarketDesign'
 import ManageProducts from './pages/Dashboard/ManageProducts'
 import PetternDesign from './pages/PetternDesign/PetternDesign'
+import Checkout from './pages/Checkout/Checkout';
 const App = () => {
   const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cart_data')) || initialCartData)
   
@@ -40,6 +41,7 @@ const App = () => {
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/checkout" element={<Checkout />} />
                 <Route path="/admin" element={<AdminController />} />
                 <Route path="/custom" element={<CustomDesign />} />
                 <Route path="/shop/designs" element={<MarketDesign />} />

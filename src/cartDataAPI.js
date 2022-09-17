@@ -3,7 +3,9 @@ import { createContext } from "react"
 const CartDataAPI = createContext()
 
 const initialCartData = {
-    items: []
+    items: [],
+    adreess : []
+    
 }
 
 export {initialCartData}

@@ -7,8 +7,18 @@ import { useRef,useState,useEffect } from 'react';
 import './style.css'
 import { FiStar } from 'react-icons/fi'
 import Card from '../Card/Card'
-const Products = ({products}) => {
+import { useDispatch, useSelector } from 'react-redux'
+import { getProducts } from '../../features/admin/adminSlice'
+const Products = () => {
+    const {data} = useSelector(state => state.products.data)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [dispatch])
+    
+
     const [width,setWidth]= useState(0);
+
     const carousel = useRef()
     
     useEffect(() =>{
@@ -36,8 +46,7 @@ const Products = ({products}) => {
                     className='inner-carousel'
                 > 
                     {
-                        products?.map((product) => <Card key={product._id} product={product}/>)
-                    
+                        data?.map((product) => <Card key={product._id} product={product}/>)
                     }
                     </motion.div>
                 </motion.div>

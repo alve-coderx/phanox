@@ -6,9 +6,17 @@ import { FiStar } from 'react-icons/fi';
 import {motion} from 'framer-motion'
 import { useRef,useState,useEffect } from 'react';
 import Card from '../Card/Card';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../features/admin/adminSlice';
 
-const Products = ({products}) => {
+const Products = () => {
+    const {data} = useSelector(state => state.products.data)
     const [width,setWidth]= useState(0);
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [dispatch])
+
     const carousel = useRef()
     
     useEffect(() =>{
@@ -36,7 +44,7 @@ const Products = ({products}) => {
                             className='inner-carousel'
                         > 
                         {
-                            products?.map((product) => <Card key={product._id} product={product}/>)
+                            data?.map((product) => <Card key={product._id} product={product}/>)
                         }
                     </motion.div>
                 </motion.div>
