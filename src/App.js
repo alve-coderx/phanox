@@ -8,7 +8,6 @@ import CartDataAPI from './cartDataAPI'
 import { initialCartData } from './cartDataAPI'
 import Error from './Components/Error'
 import ContactUs from './pages/ContactUs/ContactUs'
-import Navbar from './Components/Navbar/Navbar'
 import AboutUs from './pages/AboutUs/AboutUs'
 import SignIn from './pages/Singin/SignIn'
 import SignUp from './pages/SignUp/SingUp';
@@ -18,7 +17,6 @@ import CustomDesign from './pages/Custom/CustomDesign'
 import MarketDesign from './pages/MarketDesign/MarketDesign'
 import ManageProducts from './pages/Dashboard/ManageProducts'
 import PetternDesign from './pages/PetternDesign/PetternDesign'
-import Checkout from './pages/Checkout/Checkout';
 const App = () => {
   const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cart_data')) || initialCartData)
   
@@ -41,7 +39,6 @@ const App = () => {
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
-                <Route path="/checkout" element={<Checkout />} />
                 <Route path="/admin" element={<AdminController />} />
                 <Route path="/custom" element={<CustomDesign />} />
                 <Route path="/shop/designs" element={<MarketDesign />} />

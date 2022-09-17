@@ -55,6 +55,18 @@ export default function Checkout() {
   const {cartData, setCartData} = useContext(CartDataAPI);
   const [activeStep, setActiveStep] = React.useState(0);
 
+  const addressInfo = () => {
+    const addressDetails = {
+      name,
+      adress,
+      city,
+      state,
+      zip,
+      country
+    }
+    setCartData({address : addressDetails})
+  }
+
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -158,19 +170,9 @@ export default function Checkout() {
     }
   }
   
-const handleCheckOut = async () => {
-
-    const stripe = await getStripe()
+  const combineInfo = () => {
     
-    const response = axios.post(`${BACK_END_URL}/create-checkout-session`, cartData.items)
-    
-    if ( response.status === 500 ) return;
-
-    const { data } = await response;
-
-    stripe.redirectToCheckout({ sessionId: data.id });
-
-  }
+  } 
 
   return (
     <ThemeProvider theme={theme}>

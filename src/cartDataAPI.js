@@ -4,8 +4,6 @@ const CartDataAPI = createContext()
 
 const initialCartData = {
     items: [],
-    adreess : []
-    
 }
 
 export {initialCartData}

@@ -8,7 +8,9 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import { useContext, useEffect, useState } from "react";
 import CartDataAPI from '../../cartDataAPI'
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import axios from 'axios'
+import getStripe from "../../stripe";
+import { BACK_END_URL } from '../../constant';
 
 const Cart = ({setIsCart}) => {
   const {cartData, setCartData} = useContext(CartDataAPI);
@@ -45,6 +47,20 @@ const Cart = ({setIsCart}) => {
   const removeItem = (id) => {
     const newCartData = cartData.items.filter(item => item.productId !== id )
     setCartData({items: newCartData})
+  }
+
+  const handleCheckOut = async () => {
+
+    const stripe = await getStripe()
+    
+    const response = axios.post(`${BACK_END_URL}/create-checkout-session`, cartData.items)
+    
+    if ( response.status === 500 ) return;
+
+    const { data } = await response;
+
+    stripe.redirectToCheckout({ sessionId: data.id });
+
   }
 
 
@@ -90,7 +106,7 @@ const Cart = ({setIsCart}) => {
             <span className="fw-bold fs-6">Subtotal:</span>
             <span className="fw-bold fs-6">${total.toFixed(2)}</span>
         </div>
-        <div className="px-5 mt-4"><Link to='/checkout'><Button variant="contained" color="success" style={{backgroundColor : '#181818',color : '#bda683'}} fullWidth>Checkout</Button></Link></div>
+        <div className="px-5 mt-4"><Button variant="contained" color="success" style={{backgroundColor : '#181818',color : '#bda683'}} fullWidth onClick={handleCheckOut}>Checkout</Button></div>
     </Col>
     </CartStyled>
     </>
