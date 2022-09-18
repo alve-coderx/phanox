@@ -5,7 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../features/admin/adminSlice';
+import { getProducts,delProduct } from '../../features/admin/adminSlice';
 function ResponsiveExample() {
   const {data} = useSelector(state => state.products)
   const dispatch = useDispatch()
@@ -37,7 +37,7 @@ function ResponsiveExample() {
                         <td style={{padding : '20px'}}>{product.discount}%</td>
                         <td style={{padding : '20px'}}>{product.price}</td>
                         <td style={{padding : '20px'}}>{product.rating}</td>
-                        <td style={{padding : '20px'}}><RemoveRedEyeIcon/><EditIcon/><DeleteOutlineIcon/></td>
+                        <td style={{padding : '20px'}}><RemoveRedEyeIcon/><EditIcon/><DeleteOutlineIcon onClick={() => dispatch(delProduct(product._id))}/></td>
                     </tr>
                 ))
             }

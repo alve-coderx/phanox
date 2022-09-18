@@ -37,7 +37,7 @@ const Home = () => {
           </Button> 
         </div>
         <Products />
-        <PetterProducts/>
+        <PetterProducts />
     <Footer />
     </>
   )

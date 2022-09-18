@@ -53,6 +53,7 @@ const Content = ({prodata}) => {
       // Post Form Data to server
       dispatch(postProduct(formData))
       console.log(data)
+      alert('product added')
     }
 
     const handleDelProduct = (id) => {

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const ProductStyled = styled.div`
     .product {
+        overflow : hidden
         width: calc(100% / 5);
         text-transform: capitalize;
         color: #333;

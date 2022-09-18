@@ -12,7 +12,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation,useNavigate } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 
 function Copyright(props) {
   return (
@@ -30,15 +31,21 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const [loginData,setLoginData] = React.useState({});
+  const {logInUser} = useFirebase();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleLoginOnSubmit = (e) => {
+    logInUser(loginData.email,loginData.password,location,navigate)
+    e.preventDefault()
   };
-
+  const handleOnChnage = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = {...loginData};
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
+  };
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -73,14 +80,16 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={handleLoginOnSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 id="email"
                 label="Email Address"
-                name="email"
+                name='email'
+                type='email'
+                onChange={handleOnChnage}
                 autoComplete="email"
                 autoFocus
               />
@@ -91,6 +100,7 @@ export default function SignInSide() {
                 name="password"
                 label="Password"
                 type="password"
+                onChange={handleOnChnage}
                 id="password"
                 autoComplete="current-password"
               />

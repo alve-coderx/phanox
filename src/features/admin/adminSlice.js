@@ -33,6 +33,16 @@ export const getProducts = createAsyncThunk(
       console.log(error)
     }
   })
+export const getPetterns = createAsyncThunk(
+  'Admin/getPetterns', 
+  async (token) => {
+    try {
+      const res = await adminAPI.getPetterns(token)
+      return res
+    } catch (error) {
+      console.log(error)
+    }
+  })
   
   export const getProduct = createAsyncThunk(
     'Admin/getProduct',
@@ -47,6 +57,7 @@ export const getProducts = createAsyncThunk(
 
 const initialState = {
   data: {},
+  petterns :{},
   ontherData: {},
   isLoading: false
 }
@@ -62,6 +73,9 @@ const adminSlice = createSlice({
     })
     .addCase(getProducts.fulfilled, (state, action) => {
       state.data = action.payload
+    })
+    .addCase(getPetterns.fulfilled, (state, action) => {
+      state.petterns = action.payload
     })
     .addCase(getProduct.pending, (state, action) => {
       state.isLoading = true

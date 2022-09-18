@@ -1,10 +1,12 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 
-export const ProductImage = ({productData}) => {
+export const ProductImage = ({imgSelected}) => {
     return (
         <Col className="col-12 col-lg-5">
-            {/* <div className="main_img p-4"><img className="w-100" src={productData?.images[0]}/></div> */}
+            {
+                <div className="main_img p-4"><img className="w-100" src={imgSelected}/></div>
+            }
         </Col>
     )
 }

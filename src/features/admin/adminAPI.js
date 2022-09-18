@@ -2,9 +2,13 @@ import axios from 'axios'
 import { BACK_END_URL } from '../../constant'
 
 const SERVER_URL = `${BACK_END_URL}/products/`
+const PETTERN_SERVER_URL = `${BACK_END_URL}/petterns/`
 
 const getProducts = () => {
   return axios.get(SERVER_URL)
+}
+const getPetterns = () => {
+  return axios.get(PETTERN_SERVER_URL)
 }
 const getProduct = (id) => {
   return axios.get(SERVER_URL + id)
@@ -19,4 +23,4 @@ const delProduct = (id) => {
 }
 
 
-export default { postProduct, getProducts, getProduct, delProduct }
+export default { postProduct, getProducts, getProduct, delProduct,getPetterns }

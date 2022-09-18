@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import {motion} from 'framer-motion'
 import { FiStar } from "react-icons/fi";
 import './card.css'
+import { Col } from "react-bootstrap";
 export const Card = ({product}) => {
     return (
        <>
        {
         product.title && (
-            <motion.div className='item'>
+            <div className='item'>
                 <Link to={`/products/${product._id}`} style={{textDecoration : 'none',color : 'black'}}>
                     <div>
                         <div className="product-card">
@@ -18,16 +19,14 @@ export const Card = ({product}) => {
                                 height={250}
                                 className="product-image"
                             />
-                            <div className='d-flex justify-content-between'>
-                                <p className="product-price">${product.price}</p>
-                                <p className="product-price">{product.discount}%</p>
-                            </div>
+                            <p className="product-price">${product.price}</p>
+                            <p className="product-price">{product.discount}%</p>
                             <p className="product-price">{product.title}</p>
                             <p className="product-price"><FiStar/><FiStar/><FiStar/><FiStar/><FiStar/></p>
                         </div>
                     </div>
                 </Link>
-            </motion.div>
+            </div>
         )
        }
        </>

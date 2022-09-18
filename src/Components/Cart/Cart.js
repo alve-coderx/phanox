@@ -7,15 +7,17 @@ import AddIcon from '@mui/icons-material/Add'
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import { useContext, useEffect, useState } from "react";
 import CartDataAPI from '../../cartDataAPI'
-import { useSelector } from "react-redux";
 import axios from 'axios'
 import getStripe from "../../stripe";
-import { BACK_END_URL } from '../../constant';
+import { BACK_END_URL } from "../../constant";
+import GooglePayButton from '@google-pay/button-react'
+import Paypal from "./Paypal";
+
 
 const Cart = ({setIsCart}) => {
-  const {cartData, setCartData} = useContext(CartDataAPI);
+  const {cartData, setCartData} = useContext(CartDataAPI)
   const [total, setTotal] = useState(0)
-  const customItems = useSelector(state => state.customProduct.customCart)
+
   useEffect(() => {
     let totalPrice = 0 
     cartData.items.map(item => {
@@ -63,7 +65,6 @@ const Cart = ({setIsCart}) => {
 
   }
 
-
   return (
     <>
     <CartStyled>
@@ -71,14 +72,13 @@ const Cart = ({setIsCart}) => {
         <div className="d-flex align-items-center gap-2">
             <IconButton onClick={() => setIsCart(false)}><KeyboardArrowLeftIcon /></IconButton>
             <span className="fw-bold fs-6">Your Cart</span>
-            <span className="text-success">({cartData.items.length} Items)</span>
+            <span className="text-danger">({cartData.items.length} Items)</span>
         </div>
-        
         <div className="products my-4">
             {cartData.items.map((item, ind) => (
                 <div key={item.productId} className="d-flex  gap-3 px-3 my-3">
                 <Col className="col-5 col-md-4">
-                    <div className="img"><img className="w-100 h-100" src={item?.images[0]} alt={item.title} /></div>
+                    <div className="img"><img className="w-100 h-100" src={item.images[0]} alt={item.title} /></div>
                 </Col>
                 <Col className="col-7 col-md-8 d-flex flex-column gap-3">
                     <div className="d-flex flex-wrap justify-content-between align-items-center">
@@ -91,22 +91,65 @@ const Cart = ({setIsCart}) => {
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="quantity d-flex">
-                            <button onClick={() => decItemQuantity(item.productId)} disabled={item.quantity === 1}><RemoveIcon className="text-success"/></button>
+                            <button onClick={() => decItemQuantity(item.productId)} disabled={item.quantity === 1}><RemoveIcon className="text-danger"/></button>
                             <span>{item.quantity}</span>
                             <button onClick={() => incItemQuantity(item.productId)} disabled={item.quantity === 30}><AddIcon className="text-success"/></button>
                         </div>
-                        <IconButton onClick={() => removeItem(item.productId)}><RemoveCircleOutlineIcon className="text-success"/></IconButton>
-                    </div>  
+                        <IconButton onClick={() => removeItem(item.productId)}><RemoveCircleOutlineIcon className="text-danger"/></IconButton>
+                    </div>
                 </Col>
             </div>
             ))}
         </div>
-        
         <div className="d-flex justify-content-between align-items-center px-3">
             <span className="fw-bold fs-6">Subtotal:</span>
             <span className="fw-bold fs-6">${total.toFixed(2)}</span>
         </div>
-        <div className="px-5 mt-4"><Button variant="contained" color="success" style={{backgroundColor : '#181818',color : '#bda683'}} fullWidth onClick={handleCheckOut}>Checkout</Button></div>
+        <div className="d-flex"> 
+
+        <div className="px-4 mt-4"><Button variant="contained" color="error" onClick={handleCheckOut}>pay with stripe</Button></div>
+        <div className="mt-4">
+        <GooglePayButton
+            environment="TEST"
+            paymentRequest={{
+                apiVersion: 2,
+                apiVersionMinor: 0,
+                allowedPaymentMethods: [
+                {
+                    type: 'CARD',
+                    parameters: {
+                    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                    allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                    },
+                    tokenizationSpecification: {
+                    type: 'PAYMENT_GATEWAY',
+                    parameters: {
+                        gateway: 'example',
+                        gatewayMerchantId: 'exampleGatewayMerchantId',
+                    },
+                    },
+                },
+                ],
+                merchantInfo: {
+                merchantId: '12345678901234567890',
+                merchantName: 'Demo Merchant',
+                },
+                transactionInfo: {
+                totalPriceStatus: 'FINAL',
+                totalPriceLabel: 'Total',
+                totalPrice: '100.00',
+                currencyCode: 'USD',
+                countryCode: 'US',
+                },
+            }}
+            onLoadPaymentData={paymentRequest => {
+                console.log('load payment data', paymentRequest);
+            }}
+            />
+        </div>
+   
+        </div>
+        <div className="px-4 mt-4"><Paypal/></div>
     </Col>
     </CartStyled>
     </>
