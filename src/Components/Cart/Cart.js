@@ -14,62 +14,63 @@ import GooglePayButton from '@google-pay/button-react'
 import Paypal from "./Paypal";
 
 
-const Cart = ({setIsCart}) => {
-  const {cartData, setCartData} = useContext(CartDataAPI)
-  const [total, setTotal] = useState(0)
+const Cart = ({ setIsCart }) => {
+    const { cartData, setCartData } = useContext(CartDataAPI)
+    const [total, setTotal] = useState(0)
+    console.log(cartData)
+    useEffect(() => {
+        let totalPrice = 0
+        cartData.items.map(item => {
+            totalPrice += (item.price - (item.price * (item.discount / 100))) * item.quantity
+        })
+      
+        setTotal(totalPrice)
+    }, [cartData])
 
-  useEffect(() => {
-    let totalPrice = 0 
-    cartData.items.map(item => {
-        totalPrice += (item.price - (item.price * (item.discount / 100))) * item.quantity
-    })
-    setTotal(totalPrice) 
-  }, [cartData])
+    const decItemQuantity = (id) => {
+        const newCartData = cartData.items.map(item => {
+            if (item.productId === id) {
+                item.quantity -= 1
+            }
+            return item
+        })
+        setCartData({ items: newCartData })
+    }
 
-  const decItemQuantity = (id) => {
-    const newCartData = cartData.items.map(item => {
-        if ( item.productId === id ) {
-            item.quantity -= 1
-        }
-        return item
-    })
-    setCartData({items: newCartData})
-  }
+    const incItemQuantity = (id) => {
+        const newCartData = cartData.items.map(item => {
+            if (item.productId === id) {
+                item.quantity += 1
+            }
+            return item
+        })
+        setCartData({ items: newCartData })
+    }
 
-  const incItemQuantity = (id) => {
-    const newCartData = cartData.items.map(item => {
-        if ( item.productId === id ) {
-            item.quantity += 1
-        }
-        return item
-    })
-    setCartData({items: newCartData})
-  }
-  
-  const removeItem = (id) => {
-    const newCartData = cartData.items.filter(item => item.productId !== id )
-    setCartData({items: newCartData})
-  }
+    const removeItem = (id) => {
+        const newCartData = cartData.items.filter(item => item.productId !== id)
+        setCartData({ items: newCartData })
+    }
 
-  const handleCheckOut = async () => {
+    const handleCheckOut = async () => {
 
-    const stripe = await getStripe()
-    
-    const response = axios.post(`${BACK_END_URL}/create-checkout-session`, cartData.items)
-    
-    if ( response.status === 500 ) return;
+        const stripe = await getStripe()
 
-    const { data } = await response;
+        const response = axios.post(`${BACK_END_URL}/create-checkout-session`, cartData.items)
 
-    stripe.redirectToCheckout({ sessionId: data.id });
+        if (response.status === 500) return;
 
-  }
+        const { data } = await response;
 
-  return (
-    <>
-    <CartStyled>
-    <Col className="cart p-3 d-flex flex-column">
-        <div className="d-flex align-items-center gap-2">
+        stripe.redirectToCheckout({ sessionId: data.id });
+
+    }
+
+    return (
+        <>
+            <CartStyled>
+                <Col className="cart p-3 d-flex flex-column">
+                <div className="d-flex align-items-center gap-2">
             <IconButton onClick={() => setIsCart(false)}><KeyboardArrowLeftIcon /></IconButton>
             <span className="fw-bold fs-6">Your Cart</span>
             <span className="text-danger">({cartData.items.length} Items)</span>
@@ -101,59 +102,59 @@ const Cart = ({setIsCart}) => {
             </div>
             ))}
         </div>
-        <div className="d-flex justify-content-between align-items-center px-3">
-            <span className="fw-bold fs-6">Subtotal:</span>
-            <span className="fw-bold fs-6">${total.toFixed(2)}</span>
-        </div>
-        <div className="d-flex"> 
+                    <div className="d-flex justify-content-between align-items-center px-3">
+                        <span className="fw-bold fs-6">Subtotal:</span>
+                        <span className="fw-bold fs-6">${total.toFixed(2)}</span>
+                    </div>
+                    <div className="d-flex">
 
-        <div className="px-4 mt-4"><Button variant="contained" color="error" onClick={handleCheckOut}>pay with stripe</Button></div>
-        <div className="mt-4">
-        <GooglePayButton
-            environment="TEST"
-            paymentRequest={{
-                apiVersion: 2,
-                apiVersionMinor: 0,
-                allowedPaymentMethods: [
-                {
-                    type: 'CARD',
-                    parameters: {
-                    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                    allowedCardNetworks: ['MASTERCARD', 'VISA'],
-                    },
-                    tokenizationSpecification: {
-                    type: 'PAYMENT_GATEWAY',
-                    parameters: {
-                        gateway: 'example',
-                        gatewayMerchantId: 'exampleGatewayMerchantId',
-                    },
-                    },
-                },
-                ],
-                merchantInfo: {
-                merchantId: '12345678901234567890',
-                merchantName: 'Demo Merchant',
-                },
-                transactionInfo: {
-                totalPriceStatus: 'FINAL',
-                totalPriceLabel: 'Total',
-                totalPrice: '100.00',
-                currencyCode: 'USD',
-                countryCode: 'US',
-                },
-            }}
-            onLoadPaymentData={paymentRequest => {
-                console.log('load payment data', paymentRequest);
-            }}
-            />
-        </div>
-   
-        </div>
-        <div className="px-4 mt-4"><Paypal/></div>
-    </Col>
-    </CartStyled>
-    </>
-  )
+                        <div className="px-4 mt-4"><Button variant="contained" color="error" onClick={handleCheckOut}>pay with stripe</Button></div>
+                        <div className="mt-4">
+                            <GooglePayButton
+                                environment="TEST"
+                                paymentRequest={{
+                                    apiVersion: 2,
+                                    apiVersionMinor: 0,
+                                    allowedPaymentMethods: [
+                                        {
+                                            type: 'CARD',
+                                            parameters: {
+                                                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                                                allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                                            },
+                                            tokenizationSpecification: {
+                                                type: 'PAYMENT_GATEWAY',
+                                                parameters: {
+                                                    gateway: 'example',
+                                                    gatewayMerchantId: 'exampleGatewayMerchantId',
+                                                },
+                                            },
+                                        },
+                                    ],
+                                    merchantInfo: {
+                                        merchantId: '12345678901234567890',
+                                        merchantName: 'Demo Merchant',
+                                    },
+                                    transactionInfo: {
+                                        totalPriceStatus: 'FINAL',
+                                        totalPriceLabel: 'Total',
+                                        totalPrice: '100.00',
+                                        currencyCode: 'USD',
+                                        countryCode: 'US',
+                                    },
+                                }}
+                                onLoadPaymentData={paymentRequest => {
+                                    console.log('load payment data', paymentRequest);
+                                }}
+                            />
+                        </div>
+
+                    </div>
+                    <div className="px-4 mt-4"><Paypal /></div>
+                </Col>
+            </CartStyled>
+        </>
+    )
 }
 
 export default Cart

@@ -16,6 +16,7 @@ import { BACK_END_URL } from "../../constant"
 
 const ProductDetails = () => {
     const { data, isLoading } = useSelector(state => state.products)
+    console.log(data)
     const { cartData, setCartData } = useContext(CartDataAPI)
     const dispatch = useDispatch()
     const { id } = useParams()
@@ -31,7 +32,7 @@ const ProductDetails = () => {
         setProductData(data?.data?.product)
         setImgSelected(data?.data?.product?.images[0])
         setItemData({
-          productId: productData?.productId,
+          productId: productData?._id,
           title: productData?.title,
           price: productData?.price,
           discount: productData?.discount,
@@ -40,7 +41,7 @@ const ProductDetails = () => {
           quantity: 1,
         })
     }, [data, isLoading])
-
+      console.log(cartData)
     const addItem = () => {
       const isFound = cartData.items.some(item => item.productId === itemData.productId )
 
@@ -85,11 +86,7 @@ const ProductDetails = () => {
         <>
         <Col className="col-12 col-lg-5">
             <div className="main_img p-4">{!imgSelected ? <Spinner animation="grow" variant="danger" className="m-auto" /> : <img className="w-100" src={imgSelected} alt={productData?.title} />}</div>
-            <div className="sec_img d-flex mt-3 p-2">
-                {productData?.images?.map((img, ind) => (
-                    <Col key={ind} className={`col-3 p-3 img d-flex align-items-center ${imgSelected === img ? 'bg-light' : ''}`} onClick={() => setImgSelected(img)} ><img className="w-100" src={img} alt={'image' + ind} /></Col>
-                ))}
-                </div>
+            
         </Col>
 
 
