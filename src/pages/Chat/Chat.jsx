@@ -10,7 +10,7 @@ import Navbar from '../../Components/Navbar/Navbar'
 import Footer from '../../Components/Footer/Footer'
 import { Container } from "react-bootstrap";
 
-const ENDPOINT = 'http://localhost:5000';
+const ENDPOINT = 'https://phanox.herokuapp.com';
 
 let socket;
 
@@ -25,7 +25,7 @@ const Chat = () => {
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
     console.log(name,room)
-    socket = io(ENDPOINT);
+    socket = io.connect(ENDPOINT);
       setRoom(room);
       setName(name)
   
