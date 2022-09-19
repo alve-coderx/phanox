@@ -9,8 +9,8 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import BarLinks from '../../Components/BarLinks/BarLinks';
-import { NavLink, Outlet } from 'react-router-dom';
-import { FiPlus, FiShoppingBag } from 'react-icons/fi';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import { FiHome, FiPlus, FiShoppingBag } from 'react-icons/fi';
 import { TbBrandProducthunt,TbShoppingCartDiscount } from 'react-icons/tb';
 import {FcManager,FcSalesPerformance,FcPositiveDynamic} from 'react-icons/fc'
 import {BiCategory,BiCategoryAlt} from 'react-icons/bi'
@@ -136,6 +136,22 @@ function DashboardContent() {
                 }
               </Box>
             </List>
+          <Divider />
+          <Toolbar
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              px: [1],
+              backgroundColor : '#1f2128',
+              cursor : 'pointer',
+              color : 'white'
+            }}
+          >
+            <Box>
+                <Link to='/'><FiHome/></Link>
+            </Box>
+          </Toolbar>
         </Drawer>
         <Box
           component="main"

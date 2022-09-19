@@ -6,7 +6,7 @@ export const BannerContainer = styled(Box)(({ matches, theme }) => ({
   display: "flex",
   justifyContent: "space-around",
   width: "100%",
-  height: "100%",
+  height: "70%",
   padding: "0px 0px",
   paddingTop : '50px',
   paddingBottom : '50px',

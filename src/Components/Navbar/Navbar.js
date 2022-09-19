@@ -18,7 +18,6 @@ import useFirebase from '../../hooks/useFirebase';
       {name : 'Create Design', url : '/custom'},
       {name : 'Marketplace Design', url : '/shop/designs'},
       {name : 'Marketplace Petterns', url : '/shop/petterns'},
-      {name : 'Dashboard', url : '/dashboard/addproducts'},
       {name : 'Contact', url : '/contactus'},
       {name : 'About us', url : '/aboutus'},
       ]
@@ -48,6 +47,13 @@ import useFirebase from '../../hooks/useFirebase';
                           </NavLink>
                       </MenuItem>
                   ))}
+                  {
+                    user.email === 'cutebaby7383839@gmail.com' && ( <MenuItem>
+                      <NavLink to='/dashboard/addproducts' style={{color : '#ba9467', textDecoration : 'none'}}>
+                          <Typography sx={{fontWeight : 'bold'}} textAlign="center">Dashboard</Typography>
+                      </NavLink>
+                  </MenuItem>)
+                  }
             </Nav>
             <Nav>
               <div style={{display:'flex',cursor: 'pointer', background: '#ba9467',padding : '20px'}}>

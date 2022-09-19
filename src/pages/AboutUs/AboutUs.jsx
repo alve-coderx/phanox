@@ -30,7 +30,7 @@ const AboutUs = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 mt-5 mt-lg-0">
+                    <div className="col-lg-6 mt-5 mt-lg-3">
                         <figure className="potoaboutwrap">
                             <img className='img-fluid' src="https://i.ibb.co/Pmdw55D/34.jpg" alt="potoabout" />
                         </figure>

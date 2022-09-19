@@ -11,7 +11,7 @@ const useFirebase = () => {
     const [isLoading,setIsLoading] = useState(true)
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
-
+    console.log(admin)
     const auth = getAuth(); 
     const siginWithGoogle = (location, navigate ) => {
         const googleProvider = new GoogleAuthProvider()
@@ -111,7 +111,7 @@ const useFirebase = () => {
     
     const saveUser = (email, method) => {
         const user = {email};
-        fetch('https://afternoon-sands-62770.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -122,7 +122,7 @@ const useFirebase = () => {
             .then(data => console.log(data))
     }
     useEffect(() => {
-        fetch(`https://afternoon-sands-62770.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])

@@ -20,6 +20,8 @@ import PetternDesign from './pages/PetternDesign/PetternDesign';
 import {initializeApp} from 'firebase/app';
 import firebaseConfig from '../src/Firebase/firebase.config';
 import AuthProvider from './Context/AuthProvider'
+import Chat from './pages/Chat/Chat'
+import Join from './pages/Chat/Join'
 
 const App = () => {
   const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cart_data')) || initialCartData)
@@ -45,6 +47,8 @@ const App = () => {
                   <Route path="/signup" element={<SignUp />} />
                   <Route path="/admin" element={<AdminController />} />
                   <Route path="/custom" element={<CustomDesign />} />
+                  <Route path="/join" element={<Join />} />
+                  <Route path="/chat" element={<Chat />} />
                   <Route path="/shop/designs" element={<MarketDesign />} />
                   <Route path="/shop/petterns" element={<PetternDesign />} />
                   <Route path='/dashboard' element={<Dashboard/>}>
