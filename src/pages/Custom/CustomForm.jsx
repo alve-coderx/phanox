@@ -24,8 +24,6 @@ export default function HorizontalNonLinearStepper() {
   const { cartData, setCartData } = useContext(CartDataAPI)
   const [name,setName] = useState('');
   const dispatch = useDispatch()
-
-
   
   useEffect(() => {
     setItemData({
@@ -39,7 +37,7 @@ export default function HorizontalNonLinearStepper() {
       rating: 5,
       quantity : 1
     })
-}, [data, isLoading])
+}, [data, isLoading,itemData])
 
 
  
@@ -159,7 +157,10 @@ export default function HorizontalNonLinearStepper() {
                 <Container className="my-5 d-flex flex-column align-items-center">
                     <div key={itemData.productId}>
                         <div className="card rounded shadow-sm border-0">
-                          <div className="card-body p-4"><img src={itemData.images[0]} alt="" style={{height:"276px"}} className="img-fluid d-block mx-auto mb-3"/>
+                      
+                          <div className="card-body p-4">{
+                            itemData && <img src={itemData?.images[0]} alt="" style={{height:"276px"}} className="img-fluid d-block mx-auto mb-3"/>
+                          }
                             <h5>{itemData.title}</h5>
                             <p className="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <div className='d-flex justify-content-between'>

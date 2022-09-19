@@ -1,3 +1,4 @@
+import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import AdminController from "./pages/Admin Controller/AdminController"
 import Home from './pages/Home/Home'
@@ -48,7 +49,7 @@ const App = () => {
                   <Route path="/admin" element={<AdminController />} />
                   <Route path="/custom" element={<CustomDesign />} />
                   <Route path="/join" element={<Join />} />
-                  <Route path="/chat" element={<Chat />} />
+                  <Route path="/chat" element={<React.StrictMode><Chat /></React.StrictMode>} />
                   <Route path="/shop/designs" element={<MarketDesign />} />
                   <Route path="/shop/petterns" element={<PetternDesign />} />
                   <Route path='/dashboard' element={<Dashboard/>}>

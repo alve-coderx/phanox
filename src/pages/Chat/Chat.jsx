@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from '../../Components/Navbar/Navbar'
 import Footer from '../../Components/Footer/Footer'
 import { Container } from "react-bootstrap";
+import { useRef } from "react";
 
 const ENDPOINT = 'https://phanox.herokuapp.com';
 
@@ -21,20 +22,21 @@ const Chat = () => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-
   useEffect(() => {
-    const { name, room } = queryString.parse(location.search);
-    console.log(name,room)
-    socket = io.connect(ENDPOINT);
+      const isMount = true;
+      if(isMount) {
+        const { name, room } = queryString.parse(location.search);
+      socket = io.connect(ENDPOINT);
       setRoom(room);
       setName(name)
-  
+      
       socket.emit('join', { name, room }, (error) => {
-        if(error) {
-          alert(error);
-        }
-      });
-  }, [ENDPOINT]);
+          if(error) {
+            alert(error);
+          }
+        });
+      }
+  },[ENDPOINT,location.search]);
   
   useEffect(() => {
     socket.on('message', message => {
@@ -55,17 +57,17 @@ const Chat = () => {
   }
 
   return (
-    <>
+    <React.StrictMode>
     <Navbar/>
     <Container className="bg-light ">
         <InfoBar room={room} />
       <div className="bg-light  p-5">
           <Messages messages={messages} name={name} />
-      <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+          <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
     </Container>
     <Footer/>
-    </>
+    </React.StrictMode>
   );
 }
 
