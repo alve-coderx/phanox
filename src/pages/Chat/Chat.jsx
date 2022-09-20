@@ -23,8 +23,8 @@ const Chat = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   useEffect(() => {
-      const isMount = true;
-      if(isMount) {
+
+
         const { name, room } = queryString.parse(location.search);
       socket = io.connect(ENDPOINT);
       setRoom(room);
@@ -35,18 +35,24 @@ const Chat = () => {
             alert(error);
           }
         });
-      }
+      socket.on('message', message => {
+
+      setMessages(messages => [ ...messages, message ]);
+
+    });
+
+    
+
+    socket.on("roomData", ({ users }) => {
+
+      setUsers(users);
+
+    });
   },[ENDPOINT,location.search]);
   
-  useEffect(() => {
-    socket.on('message', message => {
-      setMessages(messages => [ ...messages, message ]);
-    });
-    
-    socket.on("roomData", ({ users }) => {
-      setUsers(users);
-    });
-}, []);
+
+
+
 
   const sendMessage = (event) => {
     event.preventDefault();
