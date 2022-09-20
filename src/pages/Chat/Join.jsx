@@ -22,7 +22,7 @@ export default function SignIn() {
           <TextField placeholder="Room" className="mt-5 joinInput mt-20" type="text" onChange={(event) => setRoom(event.target.value)} />
         </div>
         <Link onClick={e => (!username || !room) ? e.preventDefault() : null} to={`/chat?name=${username}&room=${room}`}>
-          <Button className={'mt-5 w-100 button mt-20'} type="submit">Join</Button>
+          <Button className={'mt-5 w-100 button mt-20'} type="submit">Join Room</Button>
         </Link>
       </div>
     </Container>
